@@ -1,0 +1,484 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95086CBC1AFECCC9004158D8 /* ComplexArrayMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95086CBB1AFECCC9004158D8 /* ComplexArrayMatcher.swift */; };
+		9528986F1AF3C83B007BD3BF /* SwiftMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 9528986E1AF3C83B007BD3BF /* SwiftMath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		952898751AF3C83B007BD3BF /* SwiftMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952898691AF3C83B007BD3BF /* SwiftMath.framework */; };
+		9528988A1AF3CD07007BD3BF /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898851AF3CD07007BD3BF /* Complex.swift */; };
+		9528988B1AF3CD07007BD3BF /* Polynomials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898861AF3CD07007BD3BF /* Polynomials.swift */; };
+		9528988C1AF3CD07007BD3BF /* Quaternion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898871AF3CD07007BD3BF /* Quaternion.swift */; };
+		9528988D1AF3CD07007BD3BF /* RealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898881AF3CD07007BD3BF /* RealType.swift */; };
+		9528988E1AF3CD07007BD3BF /* VectorR3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898891AF3CD07007BD3BF /* VectorR3.swift */; };
+		95ABF76C1AF97F260046B97A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95ABF76A1AF97F260046B97A /* Nimble.framework */; };
+		95ABF76D1AF97F260046B97A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95ABF76B1AF97F260046B97A /* Quick.framework */; };
+		95ABF7701AF97F7C0046B97A /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95ABF76A1AF97F260046B97A /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95ABF7711AF97F7C0046B97A /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95ABF76B1AF97F260046B97A /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		95ABF7731AF980610046B97A /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABF7721AF980610046B97A /* ComplexTests.swift */; };
+		95FE6B841AFACD58003877CF /* PolynomialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FE6B831AFACD58003877CF /* PolynomialsTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		952898761AF3C83B007BD3BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 952898601AF3C83B007BD3BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 952898681AF3C83B007BD3BF;
+			remoteInfo = SwiftMath;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		95ABF76F1AF97F640046B97A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				95ABF7701AF97F7C0046B97A /* Nimble.framework in CopyFiles */,
+				95ABF7711AF97F7C0046B97A /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		95086CBB1AFECCC9004158D8 /* ComplexArrayMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexArrayMatcher.swift; sourceTree = "<group>"; };
+		952898691AF3C83B007BD3BF /* SwiftMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9528986D1AF3C83B007BD3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9528986E1AF3C83B007BD3BF /* SwiftMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftMath.h; sourceTree = "<group>"; };
+		952898741AF3C83B007BD3BF /* SwiftMathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftMathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9528987A1AF3C83B007BD3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		952898851AF3CD07007BD3BF /* Complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
+		952898861AF3CD07007BD3BF /* Polynomials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polynomials.swift; sourceTree = "<group>"; };
+		952898871AF3CD07007BD3BF /* Quaternion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quaternion.swift; sourceTree = "<group>"; };
+		952898881AF3CD07007BD3BF /* RealType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealType.swift; sourceTree = "<group>"; };
+		952898891AF3CD07007BD3BF /* VectorR3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorR3.swift; sourceTree = "<group>"; };
+		95ABF76A1AF97F260046B97A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		95ABF76B1AF97F260046B97A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		95ABF7721AF980610046B97A /* ComplexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexTests.swift; sourceTree = "<group>"; };
+		95FE6B831AFACD58003877CF /* PolynomialsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolynomialsTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		952898651AF3C83B007BD3BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		952898711AF3C83B007BD3BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95ABF76C1AF97F260046B97A /* Nimble.framework in Frameworks */,
+				95ABF76D1AF97F260046B97A /* Quick.framework in Frameworks */,
+				952898751AF3C83B007BD3BF /* SwiftMath.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9528985F1AF3C83B007BD3BF = {
+			isa = PBXGroup;
+			children = (
+				9528986B1AF3C83B007BD3BF /* SwiftMath */,
+				952898781AF3C83B007BD3BF /* SwiftMathTests */,
+				9528986A1AF3C83B007BD3BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9528986A1AF3C83B007BD3BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				952898691AF3C83B007BD3BF /* SwiftMath.framework */,
+				952898741AF3C83B007BD3BF /* SwiftMathTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9528986B1AF3C83B007BD3BF /* SwiftMath */ = {
+			isa = PBXGroup;
+			children = (
+				9528986E1AF3C83B007BD3BF /* SwiftMath.h */,
+				952898861AF3CD07007BD3BF /* Polynomials.swift */,
+				952898851AF3CD07007BD3BF /* Complex.swift */,
+				952898871AF3CD07007BD3BF /* Quaternion.swift */,
+				952898881AF3CD07007BD3BF /* RealType.swift */,
+				952898891AF3CD07007BD3BF /* VectorR3.swift */,
+				9528986C1AF3C83B007BD3BF /* Supporting Files */,
+			);
+			path = SwiftMath;
+			sourceTree = "<group>";
+		};
+		9528986C1AF3C83B007BD3BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9528986D1AF3C83B007BD3BF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		952898781AF3C83B007BD3BF /* SwiftMathTests */ = {
+			isa = PBXGroup;
+			children = (
+				95ABF7721AF980610046B97A /* ComplexTests.swift */,
+				95FE6B831AFACD58003877CF /* PolynomialsTests.swift */,
+				95086CBB1AFECCC9004158D8 /* ComplexArrayMatcher.swift */,
+				95ABF76E1AF97F410046B97A /* External */,
+				952898791AF3C83B007BD3BF /* Supporting Files */,
+			);
+			path = SwiftMathTests;
+			sourceTree = "<group>";
+		};
+		952898791AF3C83B007BD3BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9528987A1AF3C83B007BD3BF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95ABF76E1AF97F410046B97A /* External */ = {
+			isa = PBXGroup;
+			children = (
+				95ABF76A1AF97F260046B97A /* Nimble.framework */,
+				95ABF76B1AF97F260046B97A /* Quick.framework */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		952898661AF3C83B007BD3BF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9528986F1AF3C83B007BD3BF /* SwiftMath.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		952898681AF3C83B007BD3BF /* SwiftMath */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9528987F1AF3C83B007BD3BF /* Build configuration list for PBXNativeTarget "SwiftMath" */;
+			buildPhases = (
+				952898641AF3C83B007BD3BF /* Sources */,
+				952898651AF3C83B007BD3BF /* Frameworks */,
+				952898661AF3C83B007BD3BF /* Headers */,
+				952898671AF3C83B007BD3BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftMath;
+			productName = SwiftMath;
+			productReference = 952898691AF3C83B007BD3BF /* SwiftMath.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		952898731AF3C83B007BD3BF /* SwiftMathTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 952898821AF3C83B007BD3BF /* Build configuration list for PBXNativeTarget "SwiftMathTests" */;
+			buildPhases = (
+				952898701AF3C83B007BD3BF /* Sources */,
+				952898711AF3C83B007BD3BF /* Frameworks */,
+				952898721AF3C83B007BD3BF /* Resources */,
+				95ABF76F1AF97F640046B97A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				952898771AF3C83B007BD3BF /* PBXTargetDependency */,
+			);
+			name = SwiftMathTests;
+			productName = SwiftMathTests;
+			productReference = 952898741AF3C83B007BD3BF /* SwiftMathTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		952898601AF3C83B007BD3BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = GlidingSwift;
+				TargetAttributes = {
+					952898681AF3C83B007BD3BF = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					952898731AF3C83B007BD3BF = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 952898631AF3C83B007BD3BF /* Build configuration list for PBXProject "SwiftMath" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9528985F1AF3C83B007BD3BF;
+			productRefGroup = 9528986A1AF3C83B007BD3BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				952898681AF3C83B007BD3BF /* SwiftMath */,
+				952898731AF3C83B007BD3BF /* SwiftMathTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		952898671AF3C83B007BD3BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		952898721AF3C83B007BD3BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		952898641AF3C83B007BD3BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9528988C1AF3CD07007BD3BF /* Quaternion.swift in Sources */,
+				9528988A1AF3CD07007BD3BF /* Complex.swift in Sources */,
+				9528988E1AF3CD07007BD3BF /* VectorR3.swift in Sources */,
+				9528988B1AF3CD07007BD3BF /* Polynomials.swift in Sources */,
+				9528988D1AF3CD07007BD3BF /* RealType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		952898701AF3C83B007BD3BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95ABF7731AF980610046B97A /* ComplexTests.swift in Sources */,
+				95086CBC1AFECCC9004158D8 /* ComplexArrayMatcher.swift in Sources */,
+				95FE6B841AFACD58003877CF /* PolynomialsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		952898771AF3C83B007BD3BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 952898681AF3C83B007BD3BF /* SwiftMath */;
+			targetProxy = 952898761AF3C83B007BD3BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9528987D1AF3C83B007BD3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9528987E1AF3C83B007BD3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		952898801AF3C83B007BD3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftMath/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		952898811AF3C83B007BD3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftMath/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		952898831AF3C83B007BD3BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwiftMathTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		952898841AF3C83B007BD3BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = SwiftMathTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		952898631AF3C83B007BD3BF /* Build configuration list for PBXProject "SwiftMath" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9528987D1AF3C83B007BD3BF /* Debug */,
+				9528987E1AF3C83B007BD3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9528987F1AF3C83B007BD3BF /* Build configuration list for PBXNativeTarget "SwiftMath" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952898801AF3C83B007BD3BF /* Debug */,
+				952898811AF3C83B007BD3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		952898821AF3C83B007BD3BF /* Build configuration list for PBXNativeTarget "SwiftMathTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				952898831AF3C83B007BD3BF /* Debug */,
+				952898841AF3C83B007BD3BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 952898601AF3C83B007BD3BF /* Project object */;
+}
