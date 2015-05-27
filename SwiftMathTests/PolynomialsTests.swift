@@ -43,7 +43,7 @@ class PolynomialsSpec: QuickSpec {
             it("has 3 roots iff a != 0") {
                 expect(cubic(1, 3, 3, 1)).to(equal([minus1, minus1, minus1]))
                 
-                expect(cubic(1, 1, 1, 1)).to(beCloseTo([minus1, -imaginary, imaginary]))
+                expect(cubic(1, 1, 1, 1)).to(equal([minus1, -imaginary, imaginary]))
             }
             
             it("equals quadratic(b, c, d) iff a == 0") {
@@ -57,7 +57,7 @@ class PolynomialsSpec: QuickSpec {
                 println(biquadratic)
                 
                 let minus1 = -1 + 0.i
-                expect(quartic(1, 4, 6, 4, 1)).to(beCloseTo([minus1, minus1, minus1, minus1]))
+                expect(quartic(1, 4, 6, 4, 1)).to(equal([minus1, minus1, minus1, minus1]))
             }
             
             it("equals cubic(b, c, d, e) iff a == 0") {

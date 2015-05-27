@@ -79,9 +79,9 @@ class ComplexSpec: QuickSpec {
         
         describe("exponentiation") {
             it("correctly handles corner cases (i.e. x^0, 0^x)") {
-                expect(Complex(0.0, 0.0) ** 0.0).to(equal(Complex(1.0, 0.0)))
+                expect(Complex.zero ** 0.0).to(equal(Complex(1.0, 0.0)))
                 expect(Complex(9999.0, 0.0) ** 0.0).to(equal(Complex(1.0, 0.0)))
-                expect(Complex(0.0, 0.0) ** 9999.0).to(equal(Complex(0.0, 0.0)))
+                expect(Complex.zero ** 9999.0).to(equal(Complex.zero))
             }
         }
         

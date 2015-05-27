@@ -22,6 +22,10 @@ public func quadratic<Real: RealType>(a: Real, b: Real, c: Real) -> [Complex<Rea
         return linear(b, c)
     }
     
+    if c.isZero {
+        return [Complex.zero] + linear(a, b)
+    }
+    
     let discriminant = (b * b) - (4.0 * a * c)
     var dSqrt = sqrt(Complex(discriminant, 0.0))
     if b.isSignMinus {
@@ -36,6 +40,10 @@ public func quadratic<Real: RealType>(a: Real, b: Real, c: Real) -> [Complex<Rea
 public func cubic<Real: RealType>(a: Real, var b: Real, var c: Real, var d: Real) -> [Complex<Real>] {
     if a.isZero {
         return quadratic(b, c, d)
+    }
+    
+    if d.isZero {
+        return [Complex.zero] + quadratic(a, b, c)
     }
     
     b /= a
@@ -85,88 +93,154 @@ public func cubic<Real: RealType>(a: Real, var b: Real, var c: Real, var d: Real
     }
 }
 
-public func quartic<Real: RealType>(a: Real, var b: Real, var c: Real, var d: Real, var e: Real) -> [Complex<Real>] {
+public func quartic<Real: RealType>(var a: Real, var b: Real, var c: Real, var d: Real, var e: Real) -> [Complex<Real>] {
     if a.isZero {
         return cubic(b, c, d, e)
     }
     
-    b /= a
-    c /= a
-    d /= a
-    e /= a
-    
-    let b2 = b * b
-    let c2 = c * c
-    let d2 = d * d
-    
-    let p = 2.0*(c - (3.0/8.0 * b2))
-    let bc4 = 4.0 * b * c
-    let q = (((b2 * b) - bc4) / 8.0) + d
-    
-    let D0 = c2 - (3.0 * b * d) + (12.0 * e)
-    let bcd9 = 9.0 * b * c * d
-    let ce72 = 72.0 * c * e
-    let D1_1 = (2.0 * c2 * c) - bcd9
-    let D1_2 = 27.0 * ((b2 * e) + d2)
-    let D1 = D1_1 + D1_2 - ce72
-    let minus27D = (D1 * D1) - (4.0 * D0 * D0 * D0)
-    var squareRoot = sqrt(Complex(minus27D, 0.0))
-    let oneThird: Real = 1.0/3.0
-    let zero: Real = 0.0
-    
-    if D0.isZero && !minus27D.isZero {
-        if (D1 + squareRoot) == zero {
-            squareRoot = -squareRoot
-        }
+    if e.isZero {
+        return [Complex.zero] + cubic(a, b, c, d)
     }
     
-    let Q = pow(0.5 * (D1 + squareRoot), oneThird)
-    
-    if Q == zero {
-        // FIXME: handle special case of Q == 0
-//        preconditionFailure("Quartic with Q == 0 => case not yet implemented.")
-        return []
-        // It means necessarily that D0 == 0 && D1 == 0
-        // => at least three roots are equal, and the roots are rational functions of the coefficients.
-    } else {
-        let z1 = -oneThird * p
-        let z3 = Q + (D0 / Q)
-        let S = 0.5 * sqrt(z1 + (oneThird * z3))
-        let minus_b_4a = -b / 4.0
+    if b.isZero && d.isZero {
+        let squares = quadratic(a, c, e)
         
-        if S == zero {
-            let firstPart = -3.0*b2*b2/256.0
-            let secondPart = c*b2/16.0
-            let thirdPart = minus_b_4a*d
-            let fourthPart = e
-            if firstPart + secondPart + thirdPart + fourthPart == zero {
-                let x = Complex(minus_b_4a, zero)
-                return [x, x, x, x]
-            }
-            
-            // The numerator of q is zero, and the associated depressed quartic is biquadratic.
-            let squares = quadratic(a, c, e)
-            
-            let x1 = sqrt(squares[0])
-            let x2 = sqrt(squares[1])
-            
-            return [x1, -x1, x2, -x2]
-        } else {
-            let u = (-4.0 * S * S) - p
-            let qOnS = q / S
-            let squareRoot12 = 0.5 * sqrt(u + qOnS)
-            let squareRoot34 = 0.5 * sqrt(u - qOnS)
-            let w12 = minus_b_4a - S
-            let w34 = minus_b_4a + S
-            
-            let x1 = w12 + squareRoot12
-            let x2 = w12 - squareRoot12
-            let x3 = w34 + squareRoot34
-            let x4 = w34 - squareRoot34
-            
-            return [x1, x2, x3, x4]
-        }
+        let x1 = sqrt(squares[0])
+        let x2 = sqrt(squares[1])
+        
+        return [x1, -x1, x2, -x2]
     }
+    
+    // Lodovico Ferrari's solution
+    
+    let a1 = b/a
+    b = c/a
+    c = d/a
+    d = e/a
+    a = a1
+    
+    let a2 = a*a
+    let minus3a2 = -3.0*a2
+    let ac64 = 64.0*a*c
+    let a2b16 = 16.0*a2*b
+    let aOn4 = a/4.0
+    
+    let p = b + minus3a2/8.0                        // alpha
+    let q = (a2*a - 4.0*a*b)/8.0 + c                // beta
+    let r = (minus3a2*a2 - ac64 + a2b16)/256.0 + d  // gamma
+    
+    if q.isZero { // Biquadratic
+        let squares = quadratic(1.0, p, r)
+        
+        let x1 = sqrt(squares[0])
+        let x2 = sqrt(squares[1])
+        
+        return [
+            x1 - aOn4,
+            -x1 - aOn4,
+            x2 - aOn4,
+            -x2 - aOn4
+        ]
+    }
+    
+    let p2 = p*p
+    let q2On8 = q*q/8.0
+    
+    let cb = 2.5*p
+    let cc = 2.0*p2 - r
+    let cd = 0.5*p*(p2-r) - q2On8
+    let yRoots = cubic(1.0, cb, cc, cd).filter { $0.isReal }
+    
+    if let y = yRoots.first?.re {
+        let sqrtPPlus2y = (p + 2.0*y).sqrt()
+        let pPlusY = p + y
+        let lastPart = 0.5*q/sqrtPPlus2y
+        let uRoots12 = quadratic(1.0, sqrtPPlus2y, pPlusY - lastPart)
+        let uRoots34 = quadratic(1.0, -sqrtPPlus2y, pPlusY + lastPart)
+        
+        return [
+            uRoots12[0] - aOn4,
+            uRoots12[1] - aOn4,
+            uRoots34[0] - aOn4,
+            uRoots34[1] - aOn4
+        ]
+    } else {
+        preconditionFailure("No real roots for the cubic, which should have real roots, if I'm not mistaken")
+    }
+    
+//    b /= a
+//    c /= a
+//    d /= a
+//    e /= a
+//
+//    let b2 = b * b
+//    let c2 = c * c
+//    let d2 = d * d
+//    
+//    let p = 2.0*(c - (3.0/8.0 * b2))
+//    let bc4 = 4.0 * b * c
+//    let q = (((b2 * b) - bc4) / 8.0) + d
+//    
+//    let D0 = c2 - (3.0 * b * d) + (12.0 * e)
+//    let bcd9 = 9.0 * b * c * d
+//    let ce72 = 72.0 * c * e
+//    let D1_1 = (2.0 * c2 * c) - bcd9
+//    let D1_2 = 27.0 * ((b2 * e) + d2)
+//    let D1 = D1_1 + D1_2 - ce72
+//    let minus27D = (D1 * D1) - (4.0 * D0 * D0 * D0)
+//    var squareRoot = sqrt(Complex(minus27D, 0.0))
+//    let oneThird: Real = 1.0/3.0
+//    let zero: Real = 0.0
+//    
+//    if D0.isZero && !minus27D.isZero {
+//        if (D1 + squareRoot) == zero {
+//            squareRoot = -squareRoot
+//        }
+//    }
+//    
+//    let Qnumerator = D1 + squareRoot
+//    
+//    if Qnumerator == zero {
+//        // FIXME: handle special case of Q == 0
+////        preconditionFailure("Quartic with Q == 0 => case not yet implemented.")
+//        return []
+//        // It means necessarily that D0 == 0 && D1 == 0
+//        // => at least three roots are equal, and the roots are rational functions of the coefficients.
+//    } else {
+//        let Q = pow(0.5 * Qnumerator, oneThird)
+//        
+//        let z1 = -oneThird * p
+//        let z3 = Q + (D0 / Q)
+//        let S = 0.5 * sqrt(z1 + (oneThird * z3))
+//        let minus_b_4a = -b / 4.0
+//        
+//        if S == zero {
+//            let firstPart = -3.0*b2*b2/256.0
+//            let secondPart = c*b2/16.0
+//            let thirdPart = minus_b_4a*d
+//            let fourthPart = e
+//            if (firstPart + secondPart + thirdPart + fourthPart).isZero {
+//                let x = Complex(minus_b_4a, zero)
+//                return [x, x, x, x]
+//            } else {
+//                preconditionFailure("Something went wrong: this is a biquadratic case that should've already been handled (see the if b.isZero && d.isZero)")
+//            }
+//        } else {
+//            let u = (-4.0 * S * S) - p
+//            let qOnS = q / S
+//            let squareRoot12 = 0.5 * sqrt(u + qOnS)
+//            let squareRoot34 = 0.5 * sqrt(u - qOnS)
+//            let w12 = minus_b_4a - S
+//            let w34 = minus_b_4a + S
+//            
+//            let x1 = w12 + squareRoot12
+//            let x2 = w12 - squareRoot12
+//            let x3 = w34 + squareRoot34
+//            let x4 = w34 - squareRoot34
+//            
+//            return [x1, x2, x3, x4]
+//        }
+//    }
 }
 
 /// Finds the roots of the polinomial whose coefficients are the passed arguments.
