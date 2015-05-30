@@ -23,6 +23,15 @@ class ComplexSpec: QuickSpec {
             d = Complex(-7.0, 120.0)
         }
         
+        describe("complex number") {
+            it("is real iff im < epsilon") {
+                let realComplex = Complex(42.0, 0.9*Double.epsilon)
+                expect(realComplex.isReal).to(beTrue())
+                let nonRealComplex = Complex(42.0, 1.1*Double.epsilon)
+                expect(nonRealComplex.isReal).to(beFalse())
+            }
+        }
+        
         describe("conjugation") {
             it("gives a complex number with the same real part and opposite imaginary part") {
                 let expected = Complex(c.re, -c.im)

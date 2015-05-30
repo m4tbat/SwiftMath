@@ -32,10 +32,10 @@ public struct Quaternion<T: RealType> : Equatable {
     }
     
     public var length: T {
-        return euclideanNorm
+        return norm
     }
     
-    public var euclideanNorm: T {
+    public var norm: T {
         if re is Double {
             return sqrt(squareLength as! Double) as! T
         } else {

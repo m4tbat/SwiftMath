@@ -24,6 +24,7 @@ public protocol RealType : FloatingPointType, Hashable, FloatLiteralConvertible 
     func /= (inout Self, Self)
     // methodized functions for protocol's sake
     var abs: Self { get }
+    static var epsilon: Self { get }
     func cos() -> Self
     func exp() -> Self
     func log() -> Self
@@ -73,7 +74,7 @@ extension Double : RealType {
     static let LOG10E = 1/LN10
     static let SQRT2 = RealConstants.SQRT2
     static let SQRT1_2 = RealConstants.SQRT1_2
-    static let epsilon = 0x1p-52
+    public static let epsilon = 0x1p-52
 }
 
 // But when explicitly typed you can use Float
@@ -98,7 +99,7 @@ extension Float : RealType {
     static let LOG10E = 1/LN10
     static let SQRT2 = RealConstants.SQRT2
     static let SQRT1_2 = RealConstants.SQRT1_2
-    static let epsilon: Float = 0x1p-23
+    public static let epsilon: Float = 0x1p-23
 }
 
 //
@@ -108,9 +109,9 @@ public func =~ <T: RealType>(lhs: T, rhs: T) -> Bool {
     if lhs == rhs {
         return true
     }
-    let t = (rhs - lhs) / rhs
-    let epsilon = sizeof(T) < 8 ? 0x1p-23 : 0x1p-52
-    return t.abs <= T(2) * T(epsilon)
+    return (rhs - lhs).abs < T.epsilon
+//    let epsilon = sizeof(T) < 8 ? 0x1p-23 : 0x1p-52
+//    return t.abs <= T(2) * T(epsilon)
 }
 
 public func !~ <T: RealType>(lhs: T, rhs: T) -> Bool {

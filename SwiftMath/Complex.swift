@@ -31,7 +31,7 @@ public struct Complex<T: RealType> {
     public init(_ re: T, _ im: T) {
         self.re = re
         self.im = im
-        isReal = im.isZero
+        isReal = im =~ T(0)
     }
     
     public init() {
@@ -48,6 +48,10 @@ public struct Complex<T: RealType> {
     
     public static var zero: Complex<T> {
         return Complex(0.0, 0.0)
+    }
+    
+    public var isZero: Bool {
+        return re.isZero && im.isZero
     }
     
     /// absolute value thereof
@@ -113,11 +117,11 @@ public func == <T>(lhs: Complex<T>, rhs: Complex<T>) -> Bool {
 }
 
 public func == <T>(lhs: Complex<T>, rhs: T) -> Bool {
-    return lhs.re == rhs && lhs.im == T(0)
+    return lhs.re == rhs && lhs.im.isZero
 }
 
 public func == <T>(lhs: T, rhs: Complex<T>) -> Bool {
-    return rhs.re == lhs && rhs.im == T(0)
+    return rhs.re == lhs && rhs.im.isZero
 }
 
 extension Complex: Printable {
@@ -273,9 +277,9 @@ public func log10<T: RealType>(r: T) -> T {
 
 // pow(b, x)
 public func pow<T>(lhs: Complex<T>, rhs: Complex<T>) -> Complex<T> {
-    if rhs == T(0) {
+    if rhs.isZero {
         return Complex(T(1), T(0)) // x ** 0 == 1
-    } else if lhs == T(0) && rhs.isReal && rhs.re > T(0) {
+    } else if lhs.isZero && rhs.isReal && rhs.re > T(0) {
         return Complex.zero // 0 ** x == 0 (when x > 0)
     } else if lhs.isReal && lhs.re > T(0) { // b^z == e^(z*ln(b)) (when b is a positive real number)
         let z = log(lhs) * rhs
@@ -327,6 +331,10 @@ public func **= <T>(inout lhs: Complex<T>, rhs:T) {
 // sqrt(z)
 public func sqrt<T>(z: Complex<T>) -> Complex<T> {
     // return z ** 0.5
+    if z.isReal && z.re >= 0.0 {
+        return Complex(z.re.sqrt(), 0.0)
+    }
+    
     let d = z.abs
     let re = ((z.re + d)/T(2)).sqrt()
     if z.im < T(0) {
