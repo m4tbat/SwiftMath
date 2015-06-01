@@ -15,6 +15,9 @@
 		9528988C1AF3CD07007BD3BF /* Quaternion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898871AF3CD07007BD3BF /* Quaternion.swift */; };
 		9528988D1AF3CD07007BD3BF /* RealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898881AF3CD07007BD3BF /* RealType.swift */; };
 		9528988E1AF3CD07007BD3BF /* VectorR3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898891AF3CD07007BD3BF /* VectorR3.swift */; };
+		956609D81B1B68D500392B90 /* QuaternionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D71B1B68D500392B90 /* QuaternionTests.swift */; };
+		956609DA1B1B68ED00392B90 /* VectorR3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D91B1B68ED00392B90 /* VectorR3Tests.swift */; };
+		956609DD1B1CB61600392B90 /* VectorR3Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609DC1B1CB61600392B90 /* VectorR3Matcher.swift */; };
 		95ABF76C1AF97F260046B97A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95ABF76A1AF97F260046B97A /* Nimble.framework */; };
 		95ABF76D1AF97F260046B97A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95ABF76B1AF97F260046B97A /* Quick.framework */; };
 		95ABF7701AF97F7C0046B97A /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95ABF76A1AF97F260046B97A /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -59,6 +62,10 @@
 		952898871AF3CD07007BD3BF /* Quaternion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quaternion.swift; sourceTree = "<group>"; };
 		952898881AF3CD07007BD3BF /* RealType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealType.swift; sourceTree = "<group>"; };
 		952898891AF3CD07007BD3BF /* VectorR3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorR3.swift; sourceTree = "<group>"; };
+		956609D71B1B68D500392B90 /* QuaternionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuaternionTests.swift; sourceTree = "<group>"; };
+		956609D91B1B68ED00392B90 /* VectorR3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorR3Tests.swift; sourceTree = "<group>"; };
+		956609DB1B1CB09F00392B90 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		956609DC1B1CB61600392B90 /* VectorR3Matcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorR3Matcher.swift; sourceTree = "<group>"; };
 		95ABF76A1AF97F260046B97A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		95ABF76B1AF97F260046B97A /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = ../Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		95ABF7721AF980610046B97A /* ComplexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexTests.swift; sourceTree = "<group>"; };
@@ -91,6 +98,7 @@
 			children = (
 				9528986B1AF3C83B007BD3BF /* SwiftMath */,
 				952898781AF3C83B007BD3BF /* SwiftMathTests */,
+				956609DB1B1CB09F00392B90 /* LICENSE */,
 				9528986A1AF3C83B007BD3BF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,8 +138,11 @@
 			isa = PBXGroup;
 			children = (
 				95ABF7721AF980610046B97A /* ComplexTests.swift */,
+				956609D71B1B68D500392B90 /* QuaternionTests.swift */,
 				95FE6B831AFACD58003877CF /* PolynomialsTests.swift */,
+				956609D91B1B68ED00392B90 /* VectorR3Tests.swift */,
 				95086CBB1AFECCC9004158D8 /* ComplexArrayMatcher.swift */,
+				956609DC1B1CB61600392B90 /* VectorR3Matcher.swift */,
 				95ABF76E1AF97F410046B97A /* External */,
 				952898791AF3C83B007BD3BF /* Supporting Files */,
 			);
@@ -275,7 +286,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				956609DD1B1CB61600392B90 /* VectorR3Matcher.swift in Sources */,
 				95ABF7731AF980610046B97A /* ComplexTests.swift in Sources */,
+				956609D81B1B68D500392B90 /* QuaternionTests.swift in Sources */,
+				956609DA1B1B68ED00392B90 /* VectorR3Tests.swift in Sources */,
 				95086CBC1AFECCC9004158D8 /* ComplexArrayMatcher.swift in Sources */,
 				95FE6B841AFACD58003877CF /* PolynomialsTests.swift in Sources */,
 			);

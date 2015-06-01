@@ -11,7 +11,6 @@ import SwiftMath
 import Quick
 import Nimble
 
-
 class ComplexSpec: QuickSpec {
     
     override func spec() {
@@ -24,7 +23,7 @@ class ComplexSpec: QuickSpec {
         }
         
         describe("complex number") {
-            it("is real iff im < epsilon") {
+            it("is real iff .im < epsilon") {
                 let realComplex = Complex(42.0, 0.9*Double.epsilon)
                 expect(realComplex.isReal).to(beTrue())
                 let nonRealComplex = Complex(42.0, 1.1*Double.epsilon)
@@ -51,7 +50,6 @@ class ComplexSpec: QuickSpec {
                 let expected = Complex(c.re + d.re, c.im + d.im)
                 expect(c + d).to(equal(expected))
             }
-            
             it("is commutative") {
                 expect(c + d).to(equal(d + c))
             }
@@ -68,9 +66,7 @@ class ComplexSpec: QuickSpec {
             it("implements the formula for complex number multiplication") {
                 let expected = Complex(c.re * d.re - c.im * d.im, c.im * d.re + c.re * d.im)
                 expect(c * d).to(equal(expected))
-                
             }
-            
             it("is commutative") {
                 expect(c * d).to(equal(d * c))
             }
@@ -88,9 +84,9 @@ class ComplexSpec: QuickSpec {
         
         describe("exponentiation") {
             it("correctly handles corner cases (i.e. x^0, 0^x)") {
-                expect(Complex.zero ** 0.0).to(equal(Complex(1.0, 0.0)))
+                expect(Complex.zero() ** 0.0).to(equal(Complex(1.0, 0.0)))
                 expect(Complex(9999.0, 0.0) ** 0.0).to(equal(Complex(1.0, 0.0)))
-                expect(Complex.zero ** 9999.0).to(equal(Complex.zero))
+                expect(Complex.zero() ** 9999.0).to(equal(Complex.zero()))
             }
         }
         

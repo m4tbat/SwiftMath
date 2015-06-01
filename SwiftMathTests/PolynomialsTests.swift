@@ -64,7 +64,7 @@ class PolynomialsSpec: QuickSpec {
                 expect(quartic(0, 1, 3, 3, 1)).to(equal(cubic(1, 3, 3, 1)))
             }
             it("has 0 as root, and the other three are cubic(a, b, c, d), if e == 0") {
-                expect(quartic(1, 3, 3, 1, 0)).to(equal([Complex.zero] + cubic(1, 3, 3, 1)))
+                expect(quartic(1, 3, 3, 1, 0)).to(equal([Complex.zero()] + cubic(1, 3, 3, 1)))
             }
         }
     }
