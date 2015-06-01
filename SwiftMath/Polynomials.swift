@@ -163,10 +163,11 @@ public func quartic<Real: RealType>(var a: Real, var b: Real, var c: Real, var d
         let p3 = 3.0*p
         let q2 = 2.0*q
         let fraction = q2/sqrtPPlus2y
-        let u1 = 0.5*(sqrtPPlus2y + sqrt(-(p3 + y2 + fraction)))
-        let u2 = 0.5*(-sqrtPPlus2y + sqrt(-(p3 + y2 - fraction)))
-        let u3 = 0.5*(sqrtPPlus2y - sqrt(-(p3 + y2 + fraction)))
-        let u4 = 0.5*(-sqrtPPlus2y - sqrt(-(p3 + y2 - fraction)))
+        let p3Plus2y = p3 + y2
+        let u1 = 0.5*(sqrtPPlus2y + sqrt(-(p3Plus2y + fraction)))
+        let u2 = 0.5*(-sqrtPPlus2y + sqrt(-(p3Plus2y - fraction)))
+        let u3 = 0.5*(sqrtPPlus2y - sqrt(-(p3Plus2y + fraction)))
+        let u4 = 0.5*(-sqrtPPlus2y - sqrt(-(p3Plus2y - fraction)))
         return [
             u1 - aOn4,
             u2 - aOn4,

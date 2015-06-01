@@ -64,22 +64,22 @@ extension Double : RealType {
     public func hypot(y: Double) -> Double { return Foundation.hypot(self, y) }
     public func pow(y: Double) -> Double { return Foundation.pow(self, y) }
     
-    static let PI = RealConstants.PI
-    static let π = PI
-    static let E = RealConstants.E
-    static let e = E
-    static let LN2 = RealConstants.LN2
-    static let LOG2E = RealConstants.LOG2E
-    static let LN10 = RealConstants.LN10
-    static let LOG10E = 1/LN10
-    static let SQRT2 = RealConstants.SQRT2
-    static let SQRT1_2 = RealConstants.SQRT1_2
+    public static let PI = RealConstants.PI
+    public static let π = PI
+    public static let E = RealConstants.E
+    public static let e = E
+    public static let LN2 = RealConstants.LN2
+    public static let LOG2E = RealConstants.LOG2E
+    public static let LN10 = RealConstants.LN10
+    public static let LOG10E = 1/LN10
+    public static let SQRT2 = RealConstants.SQRT2
+    public static let SQRT1_2 = RealConstants.SQRT1_2
     public static let epsilon = 0x1p-52
 }
 
 // But when explicitly typed you can use Float
 extension Float : RealType {
-    public var abs:Float { return Swift.abs(self) }
+    public var abs: Float { return Swift.abs(self) }
     public func cos() -> Float { return Foundation.cos(self) }
     public func exp() -> Float { return Foundation.exp(self) }
     public func log() -> Float { return Foundation.log(self) }
@@ -89,16 +89,16 @@ extension Float : RealType {
     public func atan2(y: Float) -> Float { return Foundation.atan2(self, y) }
     public func pow(y: Float) -> Float { return Foundation.pow(self, y) }
     
-    static let PI = RealConstants.PI
-    static let π = PI
-    static let E = RealConstants.E
-    static let e = E
-    static let LN2 = RealConstants.LN2
-    static let LOG2E = RealConstants.LOG2E
-    static let LN10 = RealConstants.LN10
-    static let LOG10E = 1/LN10
-    static let SQRT2 = RealConstants.SQRT2
-    static let SQRT1_2 = RealConstants.SQRT1_2
+    public static let PI = RealConstants.PI
+    public static let π = PI
+    public static let E = RealConstants.E
+    public static let e = E
+    public static let LN2 = RealConstants.LN2
+    public static let LOG2E = RealConstants.LOG2E
+    public static let LN10 = RealConstants.LN10
+    public static let LOG10E = 1/LN10
+    public static let SQRT2 = RealConstants.SQRT2
+    public static let SQRT1_2 = RealConstants.SQRT1_2
     public static let epsilon: Float = 0x1p-23
 }
 

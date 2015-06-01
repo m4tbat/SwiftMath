@@ -127,7 +127,7 @@ public func == <T>(lhs: T, rhs: Complex<T>) -> Bool {
 extension Complex: Printable {
     
     public var description: String {
-        let plus = im.isSignMinus ? "-" : "+"
+        let plus = im.isSignMinus ? "" : "+"
         return "(\(re)\(plus)\(im).i)"
     }
     

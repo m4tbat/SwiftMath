@@ -107,11 +107,10 @@ public func × <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Quaterni
     return multiply(lhs, rhs)
 }
 
-extension VectorR3 {
+extension Quaternion: Printable {
     
-    public func rotate(rotation: Quaternion<T>) -> VectorR3<T> {
-        assert(rotation.length == 1.0, "rotation is not a unit-length quaternion")
-        return self + (rotation.im + rotation.im) × (rotation.im × self + rotation.re * self)
+    public var description: String {
+        return "(re: \(re), im: \(im))"
     }
     
 }

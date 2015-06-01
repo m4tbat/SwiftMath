@@ -46,6 +46,11 @@ public struct VectorR3<T: RealType> {
     public func unit() -> VectorR3<T> {
         return self / length
     }
+    
+    public func rotate(rotation: Quaternion<T>) -> VectorR3<T> {
+        assert(rotation.length == 1.0, "rotation is not a unit-length quaternion")
+        return self + (rotation.im + rotation.im) × (rotation.im × self + rotation.re * self)
+    }
 
 }
 
@@ -55,16 +60,16 @@ extension VectorR3 : Hashable {
  
     public var hashValue: Int {
         if self.x is Double {
-            return Int((x as! Double) * (y as! Double) * (z as! Double))
+            return Int((x as! Double) + (y*10_000.0 as! Double) + (z*100_000_000.0 as! Double))
         } else {
-            return Int((x as! Float) * (y as! Float) * (z as! Float))
+            return Int((x as! Float) * (y*10_000.0 as! Float) * (z*100_000_000.0 as! Float))
         }
     }
     
 }
 
 public func == <T: RealType>(lhs: VectorR3<T>, rhs: VectorR3<T>) -> Bool {
-    return (lhs.x == rhs.x) && (lhs.y == lhs.y) && (lhs.z == lhs.z)
+    return (lhs.x == rhs.x) && (lhs.y == rhs.y) && (lhs.z == rhs.z)
 }
 
 // MARK: Operators
@@ -148,4 +153,12 @@ public func distance<T: RealType>(v1: VectorR3<T>, v2: VectorR3<T>) -> T {
 
 public func squareDistance<T: RealType>(v1: VectorR3<T>, v2: VectorR3<T>) -> T {
     return (v1 - v2).squareLength
+}
+
+extension VectorR3: Printable {
+    
+    public var description: String {
+        return "(x: \(x), y: \(y), z: \(z))"
+    }
+    
 }
