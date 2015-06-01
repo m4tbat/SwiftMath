@@ -46,7 +46,7 @@ public struct Complex<T: RealType> {
         return Complex(1.0, 0.0)
     }
     
-    public static var zero: Complex<T> {
+    public static func zero() -> Complex<T> {
         return Complex(0.0, 0.0)
     }
     
@@ -280,7 +280,7 @@ public func pow<T>(lhs: Complex<T>, rhs: Complex<T>) -> Complex<T> {
     if rhs.isZero {
         return Complex(T(1), T(0)) // x ** 0 == 1
     } else if lhs.isZero && rhs.isReal && rhs.re > T(0) {
-        return Complex.zero // 0 ** x == 0 (when x > 0)
+        return Complex.zero() // 0 ** x == 0 (when x > 0)
     } else if lhs.isReal && lhs.re > T(0) { // b^z == e^(z*ln(b)) (when b is a positive real number)
         let z = log(lhs) * rhs
         return exp(z)

@@ -9,22 +9,26 @@
 import Foundation
 
 public struct Quaternion<T: RealType> : Equatable {
-    let re: T
-    let im: VectorR3<T>
     
-    public init(re: T, im: VectorR3<T>) {
+    public let re: T
+    public let im: VectorR3<T>
+    
+    public let isReal: Bool
+    
+    public init(_ re: T, _ im: VectorR3<T>) {
         self.re = re
         self.im = im
+        isReal = im == VectorR3.zero()
     }
     
     public init(axis: VectorR3<T>, angle: T) {
         assert(axis.length == 1.0, "axis is not a unit-length vector")
         let halfAngle = angle/2.0
-        self.init(re: halfAngle.cos(), im: axis * halfAngle.sin())
+        self.init(halfAngle.cos(), axis * halfAngle.sin())
     }
     
     public static func id() -> Quaternion<T> {
-        return Quaternion(re: 1.0, im: .id())
+        return Quaternion(1.0, .zero())
     }
     
     public var squareLength: T {
@@ -48,7 +52,7 @@ public struct Quaternion<T: RealType> : Equatable {
     }
     
     public func conj() -> Quaternion<T> {
-        return Quaternion(re: re, im: -im)
+        return Quaternion(re, -im)
     }
     
     public func reciprocal() -> Quaternion<T> {
@@ -62,11 +66,15 @@ public func == <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Bool {
 }
 
 public func + <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Quaternion<T> {
-    return Quaternion(re: lhs.re + rhs.re, im: lhs.im + rhs.im)
+    return Quaternion(lhs.re + rhs.re, lhs.im + rhs.im)
+}
+
+public func - <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Quaternion<T> {
+    return Quaternion(lhs.re - rhs.re, lhs.im - rhs.im)
 }
 
 public func * <T: RealType>(lhs: T, rhs: Quaternion<T>) -> Quaternion<T> {
-    return Quaternion(re: rhs.re * lhs, im: rhs.im * lhs)
+    return Quaternion(rhs.re * lhs, rhs.im * lhs)
 }
 
 public func * <T: RealType>(lhs: Quaternion<T>, rhs: T) -> Quaternion<T> {
@@ -90,7 +98,7 @@ public func * <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> T {
 public func multiply<T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Quaternion<T> {
     let re = lhs.re * rhs.re - lhs.im * rhs.im
     let im = lhs.re * rhs.im + rhs.re * lhs.im + lhs.im × rhs.im
-    return Quaternion(re: re, im: im)
+    return Quaternion(re, im)
 }
 
 infix operator × { associativity left precedence 150 }

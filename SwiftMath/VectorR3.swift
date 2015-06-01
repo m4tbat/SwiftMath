@@ -19,10 +19,6 @@ public struct VectorR3<T: RealType> {
         self.z = z
     }
     
-    public static func id() -> VectorR3<T> {
-        return VectorR3(x: 0.0, y: 0.0, z: 0.0)
-    }
-    
     public var squareLength: T {
         return self * self
     }
@@ -41,6 +37,10 @@ public struct VectorR3<T: RealType> {
     
     public var components: (x: T, y: T, z: T) {
         return (x, y, z)
+    }
+    
+    public static func zero() -> VectorR3<T> {
+        return VectorR3(x: T(0), y: T(0), z: T(0))
     }
     
     public func unit() -> VectorR3<T> {

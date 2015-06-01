@@ -23,7 +23,7 @@ public func quadratic<Real: RealType>(a: Real, b: Real, c: Real) -> [Complex<Rea
     }
     
     if c.isZero {
-        return [Complex.zero] + linear(a, b)
+        return [Complex.zero()] + linear(a, b)
     }
     
     let discriminant = (b * b) - (4.0 * a * c)
@@ -43,7 +43,7 @@ public func cubic<Real: RealType>(a: Real, var b: Real, var c: Real, var d: Real
     }
     
     if d.isZero {
-        return [Complex.zero] + quadratic(a, b, c)
+        return [Complex.zero()] + quadratic(a, b, c)
     }
     
     b /= a
@@ -99,7 +99,7 @@ public func quartic<Real: RealType>(var a: Real, var b: Real, var c: Real, var d
     }
     
     if e.isZero {
-        return [Complex.zero] + cubic(a, b, c, d)
+        return [Complex.zero()] + cubic(a, b, c, d)
     }
     
     if b.isZero && d.isZero { // Biquadratic
