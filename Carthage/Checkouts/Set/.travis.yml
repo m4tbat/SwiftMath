@@ -1,0 +1,7 @@
+language: objective-c
+osx_image: beta-xcode6.3
+script:
+- xctool -project Set.xcodeproj -scheme Set-Mac build test
+- xctool -project Set.xcodeproj -scheme Set-iOS -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO build test
+notifications:
+  email: false

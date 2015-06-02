@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95086CBC1AFECCC9004158D8 /* ComplexArrayMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95086CBB1AFECCC9004158D8 /* ComplexArrayMatcher.swift */; };
+		950390CF1B1DE8550089C407 /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950390CE1B1DE8550089C407 /* Set.framework */; };
+		950390D81B1DE89C0089C407 /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950390CE1B1DE8550089C407 /* Set.framework */; };
+		95086CBC1AFECCC9004158D8 /* ComplexMultisetMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95086CBB1AFECCC9004158D8 /* ComplexMultisetMatcher.swift */; };
 		9528986F1AF3C83B007BD3BF /* SwiftMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 9528986E1AF3C83B007BD3BF /* SwiftMath.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		952898751AF3C83B007BD3BF /* SwiftMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952898691AF3C83B007BD3BF /* SwiftMath.framework */; };
 		9528988A1AF3CD07007BD3BF /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898851AF3CD07007BD3BF /* Complex.swift */; };
@@ -18,6 +20,7 @@
 		956609D81B1B68D500392B90 /* QuaternionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D71B1B68D500392B90 /* QuaternionTests.swift */; };
 		956609DA1B1B68ED00392B90 /* VectorR3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D91B1B68ED00392B90 /* VectorR3Tests.swift */; };
 		956609DD1B1CB61600392B90 /* VectorR3Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609DC1B1CB61600392B90 /* VectorR3Matcher.swift */; };
+		95868F0B1B1E01AA00AA131D /* Set.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 950390CE1B1DE8550089C407 /* Set.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95ABF76C1AF97F260046B97A /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95ABF76A1AF97F260046B97A /* Nimble.framework */; };
 		95ABF76D1AF97F260046B97A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95ABF76B1AF97F260046B97A /* Quick.framework */; };
 		95ABF7701AF97F7C0046B97A /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95ABF76A1AF97F260046B97A /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -43,6 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				95868F0B1B1E01AA00AA131D /* Set.framework in CopyFiles */,
 				95ABF7701AF97F7C0046B97A /* Nimble.framework in CopyFiles */,
 				95ABF7711AF97F7C0046B97A /* Quick.framework in CopyFiles */,
 			);
@@ -51,7 +55,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		95086CBB1AFECCC9004158D8 /* ComplexArrayMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexArrayMatcher.swift; sourceTree = "<group>"; };
+		950390CE1B1DE8550089C407 /* Set.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Set.framework; path = Carthage/Build/iOS/Set.framework; sourceTree = "<group>"; };
+		95086CBB1AFECCC9004158D8 /* ComplexMultisetMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexMultisetMatcher.swift; sourceTree = "<group>"; };
 		952898691AF3C83B007BD3BF /* SwiftMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9528986D1AF3C83B007BD3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9528986E1AF3C83B007BD3BF /* SwiftMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftMath.h; sourceTree = "<group>"; };
@@ -77,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950390CF1B1DE8550089C407 /* Set.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950390D81B1DE89C0089C407 /* Set.framework in Frameworks */,
 				95ABF76C1AF97F260046B97A /* Nimble.framework in Frameworks */,
 				95ABF76D1AF97F260046B97A /* Quick.framework in Frameworks */,
 				952898751AF3C83B007BD3BF /* SwiftMath.framework in Frameworks */,
@@ -93,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		950390D91B1DE8B40089C407 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				950390CE1B1DE8550089C407 /* Set.framework */,
+			);
+			name = External;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		9528985F1AF3C83B007BD3BF = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +138,7 @@
 				952898881AF3CD07007BD3BF /* RealType.swift */,
 				952898891AF3CD07007BD3BF /* VectorR3.swift */,
 				9528986C1AF3C83B007BD3BF /* Supporting Files */,
+				950390D91B1DE8B40089C407 /* External */,
 			);
 			path = SwiftMath;
 			sourceTree = "<group>";
@@ -141,10 +158,10 @@
 				956609D71B1B68D500392B90 /* QuaternionTests.swift */,
 				95FE6B831AFACD58003877CF /* PolynomialsTests.swift */,
 				956609D91B1B68ED00392B90 /* VectorR3Tests.swift */,
-				95086CBB1AFECCC9004158D8 /* ComplexArrayMatcher.swift */,
+				95086CBB1AFECCC9004158D8 /* ComplexMultisetMatcher.swift */,
 				956609DC1B1CB61600392B90 /* VectorR3Matcher.swift */,
-				95ABF76E1AF97F410046B97A /* External */,
 				952898791AF3C83B007BD3BF /* Supporting Files */,
+				95ABF76E1AF97F410046B97A /* External */,
 			);
 			path = SwiftMathTests;
 			sourceTree = "<group>";
@@ -290,7 +307,7 @@
 				95ABF7731AF980610046B97A /* ComplexTests.swift in Sources */,
 				956609D81B1B68D500392B90 /* QuaternionTests.swift in Sources */,
 				956609DA1B1B68ED00392B90 /* VectorR3Tests.swift in Sources */,
-				95086CBC1AFECCC9004158D8 /* ComplexArrayMatcher.swift in Sources */,
+				95086CBC1AFECCC9004158D8 /* ComplexMultisetMatcher.swift in Sources */,
 				95FE6B841AFACD58003877CF /* PolynomialsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +422,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftMath/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -421,6 +442,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftMath/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
