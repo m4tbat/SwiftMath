@@ -9,7 +9,7 @@ SwiftMath is a Swift microframework providing some useful math constructs and fu
 VectorR3 — as the name suggests — represents a vector in the three-dimensional Euclidean space (aka R×R×R).
 Some of the most common uses of 3D vectors consist in encoding physical quantities like position, velocity, acceleration, force, and many others.
 
-```
+```swift
 let v1 = VectorR3(x: 1, y: 2, z: 3)
 let v2 = VectorR3(x: 5, y: 6, z: 7)
 
@@ -31,7 +31,7 @@ v3.unit() // divides v3 by its length
 Complex numbers extend real numbers in order to solve problems that cannot be solved with real numbers alone.
 For example, the roots of a polynomial equation of degree > 1 can always be expressed with complex numbers, but not with real numbers.
 
-```
+```swift
 // the default constructor for Complex takes the real and imaginary parts as parameters
 let c1 = Complex(1.0, 3.0)
 c1.re // 1.0
@@ -55,7 +55,7 @@ realComplex.isReal // true
 Quaternions extend complex numbers to 4 dimensions.
 They're handy to rotate three-dimensional vectors.
 
-```
+```swift
 // rotating a vector by π/2 around its x axis
 let original = VectorR3(x: 3, y: 4, z: 0)
 let rotation = Quaternion(axis: VectorR3(x: 1, y: 0, z: 0), angle: Double.PI/2.0)
