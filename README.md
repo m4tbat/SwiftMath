@@ -21,4 +21,10 @@ They're handy to rotate three-dimensional vectors.
 
 ###Polynomials
 
-SwiftMath provides functions to find roots of polynomials, both analytic – the `linear`, `quadratic`, `cubic`, `quartic` functions or the more general `polynomial` function – and numeric (using the Durand-Kerner method) – `polynomial`, specifying `preferClosedFormSolution: false` if the degree of the polynomial is < 5.
+SwiftMath provides functions to find (complex) roots of polynomials, by analytic and numeric means.
+-`linear`: analytically find roots of a polynomial of degree 1
+-`quadratic`: analytically find roots of a polynomial of degree 2
+-`cubic`: analytically find roots of a polynomial of degree 3
+-`quartic`: analytically find roots of a polynomial of degree 4
+-`polynomial`: find roots of a polynomial of degree equal to the number of passed-in arguments, minus 1. If degree <= 4, defaults to using the analytic method (by calling one of the above functions), while if `preferClosedFormSolution: false`, or degree > 4, uses the the Durand-Kerner method.
+s
