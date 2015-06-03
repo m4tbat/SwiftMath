@@ -71,7 +71,7 @@ SwiftMath provides functions to find (complex) roots of polynomials, by analytic
 -	`quartic`: analytically find roots of a polynomial of degree 4
 -	`polynomial`: find roots of a polynomial of degree equal to the number of passed-in arguments, minus 1. If degree <= 4, defaults to using the analytic method (by calling one of the above functions), while if `preferClosedFormSolution: false`, or degree > 4, uses the the [Durand-Kerner method](http://en.wikipedia.org/wiki/Durand%E2%80%93Kerner_method).
 
-```
+```swift
 // The roots of a polynomial are represented as a (multi)set of complex numbers
 var roots: Multiset<Complex<Double>>
 // x + 3 = 0
