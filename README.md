@@ -71,5 +71,28 @@ SwiftMath provides functions to find (complex) roots of polynomials, by analytic
 -	`quartic`: analytically find roots of a polynomial of degree 4
 -	`polynomial`: find roots of a polynomial of degree equal to the number of passed-in arguments, minus 1. If degree <= 4, defaults to using the analytic method (by calling one of the above functions), while if `preferClosedFormSolution: false`, or degree > 4, uses the the [Durand-Kerner method](http://en.wikipedia.org/wiki/Durand%E2%80%93Kerner_method).
 
+```
+// The roots of a polynomial are represented as a (multi)set of complex numbers
+var roots: Multiset<Complex<Double>>
+// x + 3 = 0
+roots = linear(1, 3) // roots contains (-3 + 0.i)
+// x^2 + 2x + 1 = 0
+roots = quadratic(1, 2, 1) // roots contains (-1 + 0.i) with a multiplicity of 2
+// x^3 + x^2 + x + 1 = 0
+roots = cubic(1, 1, 1, 1) // roots contains (-1 + 0.i, 1.i, -1.i)
+// x^4 + x^3 + x^2 + x = 0
+roots = quartic(1, 1, 1, 1, 0) // roots contains (0.i, -1 + 0.i, -1.i, 1.i)
+// the polynomial function can be used in place of the above functions
+roots = polynomial([1, 1, 1, 1, 0]) // is equivalent to quartic(1, 1, 1, 1, 0)
+// the polynomial function has the ability to use a numeric method instead of the analytic one
+roots = polynomial(preferClosedFormSolution: false, [1, 1, 1, 1, 0]) // roots will be a very close approximation to the analytic ones
+// for polynomials of degree > 4, polynomial can only use the numeric method
+roots = polynomial([1, -5, 2.3, 0, 42, -0.8]) // will solve numerically the polynomial x^5 - 5x^4 + 2.3x^3 + 42x - 0.8 = 0
+
+```
+
 ##Contributing
-Contributions in any form (especially pull requests) are _very_ welcome! 
+Contributions in any form (especially pull requests) are _very_ welcome!
+
+##License
+SwiftMath is released under the MIT License. See the [`LICENSE`](https://github.com/madbat/SwiftMath/blob/master/LICENSE) file for more info.
