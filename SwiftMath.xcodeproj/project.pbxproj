@@ -170,13 +170,13 @@
 				959439B51B1FB08100D32EFC /* Mac */,
 			);
 			name = External;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		9528985F1AF3C83B007BD3BF = {
 			isa = PBXGroup;
 			children = (
 				9528986B1AF3C83B007BD3BF /* SwiftMath */,
+				950390D91B1DE8B40089C407 /* External */,
 				952898781AF3C83B007BD3BF /* SwiftMathTests */,
 				956609DB1B1CB09F00392B90 /* LICENSE */,
 				9528986A1AF3C83B007BD3BF /* Products */,
@@ -204,7 +204,6 @@
 				952898881AF3CD07007BD3BF /* RealType.swift */,
 				952898891AF3CD07007BD3BF /* VectorR3.swift */,
 				9528986C1AF3C83B007BD3BF /* Supporting Files */,
-				950390D91B1DE8B40089C407 /* External */,
 			);
 			path = SwiftMath;
 			sourceTree = "<group>";

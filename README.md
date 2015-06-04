@@ -1,10 +1,21 @@
 #SwiftMath
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 SwiftMath is a Swift microframework providing some useful math constructs and functions, like complex numbers, 3D vectors, quaternions, and polynomial equation solving.
 
-##Compatibility
+##Requirements
 
-SwiftMath requires iOS 8.0+/OS X 10.9+.
+SwiftMath requires iOS 8.0+ / OS X 10.9+.
+
+##Installation
+
+SwiftMath can be installed through the dependency manager [Carthage](https://github.com/Carthage/Carthage).
+*	Add the following line to your project's Cartfile
+```
+github "madbat/SwiftMath"
+```
+*	Link your project target(s) with the built frameworks. Application targets should also ensure that the framework gets copied into their application bundle. 
 
 ##Usage
 
@@ -96,7 +107,9 @@ roots = polynomial([1, -5, 2.3, 0, 42, -0.8]) // will solve numerically the poly
 ```
 
 ##Contributing
+
 Contributions in any form (especially pull requests) are _very_ welcome!
 
 ##License
+
 SwiftMath is released under the MIT License. See the [LICENSE](https://github.com/madbat/SwiftMath/blob/master/LICENSE) file for more info.
