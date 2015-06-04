@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "952898681AF3C83B007BD3BF"
-               BuildableName = "SwiftMath.framework"
-               BlueprintName = "SwiftMath"
+               BlueprintIdentifier = "95C1A3631B1FAF7F00FB5967"
+               BuildableName = "SwiftMath-Mac.framework"
+               BlueprintName = "SwiftMath-Mac"
                ReferencedContainer = "container:SwiftMath.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "952898731AF3C83B007BD3BF"
-               BuildableName = "SwiftMathTests.xctest"
-               BlueprintName = "SwiftMathTests"
+               BlueprintIdentifier = "95C1A36D1B1FAF7F00FB5967"
+               BuildableName = "SwiftMath-MacTests.xctest"
+               BlueprintName = "SwiftMath-MacTests"
                ReferencedContainer = "container:SwiftMath.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "952898731AF3C83B007BD3BF"
-               BuildableName = "SwiftMathTests.xctest"
-               BlueprintName = "SwiftMathTests"
+               BlueprintIdentifier = "95C1A36D1B1FAF7F00FB5967"
+               BuildableName = "SwiftMath-MacTests.xctest"
+               BlueprintName = "SwiftMath-MacTests"
                ReferencedContainer = "container:SwiftMath.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "952898681AF3C83B007BD3BF"
-            BuildableName = "SwiftMath.framework"
-            BlueprintName = "SwiftMath"
+            BlueprintIdentifier = "95C1A3631B1FAF7F00FB5967"
+            BuildableName = "SwiftMath-Mac.framework"
+            BlueprintName = "SwiftMath-Mac"
             ReferencedContainer = "container:SwiftMath.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +75,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "952898681AF3C83B007BD3BF"
-            BuildableName = "SwiftMath.framework"
-            BlueprintName = "SwiftMath"
+            BlueprintIdentifier = "95C1A3631B1FAF7F00FB5967"
+            BuildableName = "SwiftMath-Mac.framework"
+            BlueprintName = "SwiftMath-Mac"
             ReferencedContainer = "container:SwiftMath.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -93,9 +93,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "952898681AF3C83B007BD3BF"
-            BuildableName = "SwiftMath.framework"
-            BlueprintName = "SwiftMath"
+            BlueprintIdentifier = "95C1A3631B1FAF7F00FB5967"
+            BuildableName = "SwiftMath-Mac.framework"
+            BlueprintName = "SwiftMath-Mac"
             ReferencedContainer = "container:SwiftMath.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
