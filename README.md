@@ -2,6 +2,10 @@
 
 SwiftMath is a Swift microframework providing some useful math constructs and functions, like complex numbers, 3D vectors, quaternions, and polynomial equation solving.
 
+##Compatibility
+
+SwiftMath requires iOS 8.0+/OS X 10.9+.
+
 ##Usage
 
 ###VectorR3
@@ -95,4 +99,4 @@ roots = polynomial([1, -5, 2.3, 0, 42, -0.8]) // will solve numerically the poly
 Contributions in any form (especially pull requests) are _very_ welcome!
 
 ##License
-SwiftMath is released under the MIT License. See the [`LICENSE`](https://github.com/madbat/SwiftMath/blob/master/LICENSE) file for more info.
+SwiftMath is released under the MIT License. See the [LICENSE](https://github.com/madbat/SwiftMath/blob/master/LICENSE) file for more info.
