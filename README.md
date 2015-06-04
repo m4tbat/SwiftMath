@@ -15,6 +15,7 @@ SwiftMath can be installed through the dependency manager [Carthage](https://git
 ```
 github "madbat/SwiftMath"
 ```
+*	In the terminal, run `carthage update`
 *	Link your project target(s) with the built frameworks. Application targets should also ensure that the framework gets copied into their application bundle. 
 
 ##Usage
