@@ -32,31 +32,29 @@ public protocol VectorType {
     
     prefix func -(vector: Self) -> Self
     
-    func * <Real: RealType>(scalar: Real, vector: Self) -> Self
+    func *(scalar: Real, vector: Self) -> Self
     
-    func * <Real: RealType>(vector: Self, scalar: Real) -> Self
+    func *(vector: Self, scalar: Real) -> Self
     
-    func / <Real: RealType>(vector: Self, scalar: Real) -> Self
+    func /(vector: Self, scalar: Real) -> Self
     
-    func dotProduct<Real: RealType>(v1: Self, v2: Self) -> Real
+    func dotProductWith(vector: Self) -> Real
     
     /// Dot product
     func *(v1: Self, v2: Self) -> Real
     
-    func crossProduct(v1: Self, v2: Self) -> Self
+    func crossProductWith(vector: Self) -> Self
     
     /// Cross product
     func ×(v1: Self, v2: Self) -> Self
     
-    func linearDependency<Real: RealType>(v1: Self, v2: Self) -> Real?
+    func linearDependency(v1: Self, v2: Self) -> Real?
     
-    func distance<Real: RealType>(v1: Self, v2: Self) -> Real
+    func distanceFrom(vector: Self) -> Real
     
-    func squareDistance<Real: RealType>(v1: Self, v2: Self) -> Real
+    func squareDistanceFrom(vector: Self) -> Real
     
 }
-
-infix operator × { associativity left precedence 150 }
 
 extension VectorType {
     
@@ -76,4 +74,28 @@ extension VectorType {
         }
     }
     
+    public func unit() -> Self {
+        return self / length
+    }
+    
+    public func distanceFrom(vector: Self) -> Real {
+        return (self - vector).length
+    }
+    
+    public func squareDistanceFrom(vector: Self) -> Real {
+        return (self - vector).squareLength
+    }
+    
+}
+
+// MARK: Operators
+
+public func * <Vector: VectorType, Real: RealType where Real == Vector.Real>(vector: Vector, scalar: Real) -> Vector {
+    return scalar * vector
+}
+
+infix operator × { associativity left precedence 150 }
+/// Cross product
+public func × <Vector: VectorType>(v1: Vector, v2: Vector) -> Vector {
+    return v1.crossProductWith(v2)
 }
