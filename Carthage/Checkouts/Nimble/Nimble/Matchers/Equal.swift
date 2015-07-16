@@ -59,14 +59,14 @@ public func equal<T>(expectedValue: Set<T>?) -> NonNilMatcherFunc<Set<T>> {
 public func equal<T: Comparable>(expectedValue: Set<T>?) -> NonNilMatcherFunc<Set<T>> {
     return equal(expectedValue, stringify: {
         if let set = $0 {
-            return stringify(Array(set).sorted { $0 < $1 })
+            return stringify(Array(set).sort { $0 < $1 })
         } else {
             return "nil"
         }
     })
 }
 
-private func equal<T>(expectedValue: Set<T>?, #stringify: Set<T>? -> String) -> NonNilMatcherFunc<Set<T>> {
+private func equal<T>(expectedValue: Set<T>?, stringify: Set<T>? -> String) -> NonNilMatcherFunc<Set<T>> {
     return NonNilMatcherFunc { actualExpression, failureMessage in
         failureMessage.postfixMessage = "equal <\(stringify(expectedValue))>"
 
@@ -138,7 +138,7 @@ public func !=<T: Equatable, C: Equatable>(lhs: Expectation<[T: C]>, rhs: [T: C]
 
 extension NMBObjCMatcher {
     public class func equalMatcher(expected: NSObject) -> NMBMatcher {
-        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage, location in
+        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
             return equal(expected).matches(actualExpression, failureMessage: failureMessage)
         }
     }

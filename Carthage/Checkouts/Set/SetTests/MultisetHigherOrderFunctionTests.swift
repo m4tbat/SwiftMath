@@ -13,7 +13,7 @@ final class MultisetHigherOrderFunctionTests: XCTestCase {
 	}
 
 	func testMappable() {
-		XCTAssert(Multiset(1, 2, 3).map(toString) == Multiset("1", "2", "3"))
+		XCTAssert(Multiset(1, 2, 3).map(String.init) == Multiset("1", "2", "3"))
 	}
 
 	func testFlatMapReturnsTheUnionOfAllResultingSets() {

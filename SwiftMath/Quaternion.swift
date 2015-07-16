@@ -11,17 +11,17 @@ import Foundation
 public struct Quaternion<T: RealType> : Equatable {
     
     public let re: T
-    public let im: VectorR3<T>
+    public let im: Vector3<T>
     
     public let isReal: Bool
     
-    public init(_ re: T, _ im: VectorR3<T>) {
+    public init(_ re: T, _ im: Vector3<T>) {
         self.re = re
         self.im = im
-        isReal = im == VectorR3.zero()
+        isReal = im == Vector3.zero()
     }
     
-    public init(axis: VectorR3<T>, angle: T) {
+    public init(axis: Vector3<T>, angle: T) {
         assert(axis.length == 1.0, "axis is not a unit-length vector")
         let halfAngle = angle/2.0
         self.init(halfAngle.cos(), axis * halfAngle.sin())
@@ -92,7 +92,7 @@ public func dotProduct<T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> T
 
 /// Dot product
 public func * <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> T {
-    return dotProduct(lhs, rhs)
+    return dotProduct(lhs, rhs: rhs)
 }
 
 public func multiply<T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Quaternion<T> {
@@ -104,10 +104,10 @@ public func multiply<T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Qua
 infix operator × { associativity left precedence 150 }
 /// Multiplication
 public func × <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Quaternion<T> {
-    return multiply(lhs, rhs)
+    return multiply(lhs, rhs: rhs)
 }
 
-extension Quaternion: Printable {
+extension Quaternion: CustomStringConvertible {
     
     public var description: String {
         return "(re: \(re), im: \(im))"

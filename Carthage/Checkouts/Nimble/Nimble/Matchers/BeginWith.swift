@@ -39,9 +39,9 @@ public func beginWith(startingSubstring: String) -> NonNilMatcherFunc<String> {
 
 extension NMBObjCMatcher {
     public class func beginWithMatcher(expected: AnyObject) -> NMBObjCMatcher {
-        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage, location in
+        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
             let actual = actualExpression.evaluate()
-            if let actualString = actual as? String {
+            if let _ = actual as? String {
                 let expr = actualExpression.cast { $0 as? String }
                 return beginWith(expected as! String).matches(expr, failureMessage: failureMessage)
             } else {

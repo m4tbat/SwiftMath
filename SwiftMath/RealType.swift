@@ -12,16 +12,16 @@ public protocol RealType : FloatingPointType, Hashable, FloatLiteralConvertible 
     init(_ value: Double)
     init(_ value: Float)
     // Built-in operators
-    prefix func + (Self) -> Self
-    prefix func - (Self) -> Self
-    func + (Self, Self) -> Self
-    func - (Self, Self) -> Self
-    func * (Self, Self) -> Self
-    func / (Self, Self) -> Self
-    func += (inout Self, Self)
-    func -= (inout Self, Self)
-    func *= (inout Self, Self)
-    func /= (inout Self, Self)
+    prefix func + (_: Self) -> Self
+    prefix func - (_: Self) -> Self
+    func + (_: Self, _: Self) -> Self
+    func - (_: Self, _: Self) -> Self
+    func * (_: Self, _: Self) -> Self
+    func / (_: Self, _: Self) -> Self
+    func += (inout _: Self, _: Self)
+    func -= (inout _: Self, _: Self)
+    func *= (inout _: Self, _: Self)
+    func /= (inout _: Self, _: Self)
     // methodized functions for protocol's sake
     var abs: Self { get }
     static var epsilon: Self { get }
@@ -30,9 +30,9 @@ public protocol RealType : FloatingPointType, Hashable, FloatLiteralConvertible 
     func log() -> Self
     func sin() -> Self
     func sqrt() -> Self
-    func hypot(Self) -> Self
-    func atan2(Self) -> Self
-    func pow(Self) -> Self
+    func hypot(_: Self) -> Self
+    func atan2(_: Self) -> Self
+    func pow(_: Self) -> Self
 }
 
 struct RealConstants {

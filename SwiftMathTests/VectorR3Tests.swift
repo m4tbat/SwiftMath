@@ -14,13 +14,13 @@ import Nimble
 class VectorR3Spec: QuickSpec {
     
     override func spec() {
-        let v1 = VectorR3(x: 1, y: 2, z: 3)
-        let v2 = VectorR3(x: 5, y: 6, z: 7)
-        let v3 = VectorR3(x: -20, y: 0, z: -5)
+        let v1 = Vector3(x: 1, y: 2, z: 3)
+        let v2 = Vector3(x: 5, y: 6, z: 7)
+        let v3 = Vector3(x: -20, y: 0, z: -5)
         
         describe("addition") {
             it("sums each component of one vector to the corresponding component of the other vector") {
-                expect(v1 + v2).to(equal(VectorR3(x: v1.x + v2.x, y: v1.y + v2.y, z: v1.z + v2.z)))
+                expect(v1 + v2).to(equal(Vector3(x: v1.x + v2.x, y: v1.y + v2.y, z: v1.z + v2.z)))
             }
             it("is commutative") {
                 expect(v1 + v2).to(equal(v2 + v1))
@@ -35,7 +35,7 @@ class VectorR3Spec: QuickSpec {
         
         describe("subtraction") {
             it("subtracts each component of one vector from the corresponding component of the other vector") {
-                expect(v1 - v2).to(equal(VectorR3(x: v1.x - v2.x, y: v1.y - v2.y, z: v1.z - v2.z)))
+                expect(v1 - v2).to(equal(Vector3(x: v1.x - v2.x, y: v1.y - v2.y, z: v1.z - v2.z)))
             }
         }
         
@@ -54,10 +54,10 @@ class VectorR3Spec: QuickSpec {
         
         describe("rotation") {
             it("rotates a vector as expected") {
-                let original = VectorR3(x: 3, y: 4, z: 0)
-                let rotation = Quaternion(axis: VectorR3(x: 1, y: 0, z: 0), angle: Double.PI/2.0)
+                let original = Vector3(x: 3, y: 4, z: 0)
+                let rotation = Quaternion(axis: Vector3(x: 1, y: 0, z: 0), angle: Double.PI/2.0)
                 let result = original.rotate(rotation)
-                let expected = VectorR3(x: 3, y: 0, z: 4.0)
+                let expected = Vector3(x: 3, y: 0, z: 4.0)
                 expect(result).to(beCloseTo(expected))
                 
                 expect(result.length).to(equal(original.length))

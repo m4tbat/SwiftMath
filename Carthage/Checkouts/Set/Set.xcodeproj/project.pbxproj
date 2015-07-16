@@ -18,6 +18,7 @@
 		5405C51B1A87AF08005142E4 /* MultisetHigherOrderFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE19981A3F7CA600A42022 /* MultisetHigherOrderFunctionTests.swift */; };
 		5405C51D1A87AF08005142E4 /* MultisetInitializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF6FA881A3EBBD500DDC8EE /* MultisetInitializerTests.swift */; };
 		5405C51F1A87AF08005142E4 /* MultisetPrintableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B1A51E1A529DF700A7CEE4 /* MultisetPrintableTests.swift */; };
+		9591F0591B55BCB000C52F80 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9591F0581B55BCB000C52F80 /* CoreFoundation.framework */; };
 		959789641B15F400009A24BA /* Set.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5405C4FF1A87AEF1005142E4 /* Set.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95B1A51F1A529DF700A7CEE4 /* MultisetPrintableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B1A51E1A529DF700A7CEE4 /* MultisetPrintableTests.swift */; };
 		D439CFAC19575720005BD842 /* Set.h in Headers */ = {isa = PBXBuildFile; fileRef = D439CFAB19575720005BD842 /* Set.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -77,6 +78,7 @@
 		4AF6FA881A3EBBD500DDC8EE /* MultisetInitializerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultisetInitializerTests.swift; sourceTree = "<group>"; };
 		5405C4FF1A87AEF1005142E4 /* Set.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Set.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5405C5091A87AEF2005142E4 /* Set-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Set-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9591F0581B55BCB000C52F80 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		95B1A51E1A529DF700A7CEE4 /* MultisetPrintableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultisetPrintableTests.swift; sourceTree = "<group>"; };
 		D439CFA619575720005BD842 /* Set.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Set.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D439CFAA19575720005BD842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9591F0591B55BCB000C52F80 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +133,7 @@
 		D439CF9C19575720005BD842 = {
 			isa = PBXGroup;
 			children = (
+				9591F0581B55BCB000C52F80 /* CoreFoundation.framework */,
 				D439CFA819575720005BD842 /* Set */,
 				D439CFB519575721005BD842 /* SetTests */,
 				D439CFA719575720005BD842 /* Products */,
@@ -295,7 +299,9 @@
 		D439CF9D19575720005BD842 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Rob Rix";
 				TargetAttributes = {
 					5405C4FE1A87AEF1005142E4 = {
@@ -453,6 +459,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antitypical.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Set;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -475,6 +482,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antitypical.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Set;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -498,6 +506,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antitypical.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 			};
@@ -515,6 +524,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antitypical.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -541,6 +551,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -615,6 +626,7 @@
 				INFOPLIST_FILE = Set/Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antitypical.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Set;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -634,6 +646,7 @@
 				INFOPLIST_FILE = Set/Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antitypical.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Set;
 				SKIP_INSTALL = YES;
 			};
@@ -654,6 +667,7 @@
 				INFOPLIST_FILE = SetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antitypical.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -669,6 +683,7 @@
 				INFOPLIST_FILE = SetTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antitypical.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

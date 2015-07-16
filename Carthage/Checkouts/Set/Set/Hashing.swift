@@ -2,7 +2,7 @@
 
 /// Hashes a sequence of `Hashable` elements.
 internal func hashValues<S: SequenceType where S.Generator.Element: Hashable>(sequence: S) -> Int {
-	var h = reduce(sequence, 0) { into, each in
+	var h = sequence.reduce(0) { into, each in
 		var h = into + each.hashValue
 		h += (h << 10)
 		h ^= (h >> 6)

@@ -6,7 +6,7 @@ public func contain<S: SequenceType, T: Equatable where S.Generator.Element == T
         failureMessage.postfixMessage = "contain <\(arrayAsString(items))>"
         if let actual = actualExpression.evaluate() {
             return all(items) {
-                return contains(actual, $0)
+                return actual.contains($0)
             }
         }
         return false
@@ -20,7 +20,7 @@ public func contain(substrings: String...) -> NonNilMatcherFunc<String> {
         if let actual = actualExpression.evaluate() {
             return all(substrings) {
                 let scanRange = Range(start: actual.startIndex, end: actual.endIndex)
-                let range = actual.rangeOfString($0, options: nil, range: scanRange, locale: nil)
+                let range = actual.rangeOfString($0, options: [], range: scanRange, locale: nil)
                 return range != nil && !range!.isEmpty
             }
         }
@@ -33,9 +33,7 @@ public func contain(substrings: NSString...) -> NonNilMatcherFunc<NSString> {
     return NonNilMatcherFunc { actualExpression, failureMessage in
         failureMessage.postfixMessage = "contain <\(arrayAsString(substrings))>"
         if let actual = actualExpression.evaluate() {
-            return all(substrings) {
-                return actual.containsString($0.description)
-            }
+            return all(substrings) { actual.rangeOfString($0.description).length != 0 }
         }
         return false
     }
@@ -54,7 +52,8 @@ public func contain(items: AnyObject?...) -> NonNilMatcherFunc<NMBContainer> {
 
 extension NMBObjCMatcher {
     public class func containMatcher(expected: NSObject?) -> NMBObjCMatcher {
-        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage, location in
+        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
+            let location = actualExpression.location
             let actualValue = actualExpression.evaluate()
             if let value = actualValue as? NMBContainer {
                 let expr = Expression(expression: ({ value as NMBContainer }), location: location)

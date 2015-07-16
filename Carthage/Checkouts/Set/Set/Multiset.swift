@@ -1,7 +1,7 @@
 //  Copyright (c) 2015 Rob Rix. All rights reserved.
 
 /// A multiset of elements and their counts.
-public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCollectionType, Hashable, Printable, DebugPrintable {
+public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCollectionType, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
 	// MARK: Constructors
 
 	/// Constructs a `Multiset` with the elements of `sequence`.
@@ -30,7 +30,7 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCo
 
 	/// The number of entries in the receiver.
 	public var count: Int {
-		return Swift.reduce(lazy(values).map { $0.1 }, 0, +)
+		return lazy(values).map { $0.1 }.reduce(0, combine: +)
 	}
 
 	/// The number of distinct entries in the receiver.
@@ -86,15 +86,15 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCo
 	/// Returns the intersection of the receiver and `set`.
 	public func intersection(set: Multiset) -> Multiset {
 		return Multiset(values: countDistinct <= set.countDistinct ?
-			Swift.map(values) { ($0, min($1, set.count($0))) }
-		:	Swift.map(set.values) { ($0, min($1, self.count($0))) })
+			values.map { ($0, min($1, set.count($0))) }
+		:	set.values.map { ($0, min($1, self.count($0))) })
 	}
 
 	/// Returns the relative complement of `set` in `self`.
 	///
 	/// This is a new set with all elements from the receiver which are not contained in `set`.
 	public func complement(set: Multiset) -> Multiset {
-		return Multiset(values: Swift.map(values) { ($0, $1 - set.count($0)) })
+		return Multiset(values: values.map { ($0, $1 - set.count($0)) })
 	}
 
 	/// Returns the symmetric difference of `self` and `set`.
@@ -147,7 +147,7 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCo
 
 	/// Combines each element of the receiver with an accumulator value using `combine`, starting with `initial`.
 	public func reduce<Into>(initial: Into, _ combine: (Into, Element) -> Into) -> Into {
-		return Swift.reduce(self, initial, combine)
+		return reduce(initial, combine: combine)
 	}
 
 
@@ -160,11 +160,11 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCo
 
 	// MARK: SequenceType
 
-	public func generate() -> GeneratorOf<Element> {
+	public func generate() -> AnyGenerator<Element> {
 		var generator = values.generate()
 		let next = { generator.next() }
 		var current: (element: Element?, count: Int) = (nil, 0)
-		return GeneratorOf {
+		return anyGenerator {
 			while current.count <= 0 {
 				if let (element, count) = next() {
 					current = (element, count)
@@ -208,7 +208,7 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCo
 	/// Inserts each element of `sequence` into the receiver.
 	public mutating func extend<S: SequenceType where S.Generator.Element == Element>(sequence: S) {
 		// Note that this should just be for each in sequence; this is working around a compiler bug.
-		for each in SequenceOf<Element>(sequence) {
+		for each in AnySequence<Element>(sequence) {
 			insert(each)
 		}
 	}
@@ -231,14 +231,14 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCo
 	}
 
 
-	// MARK: Printable
+	// MARK: CustomStringConvertible
 
 	public var description: String {
 		return describe(self)
 	}
 
 
-	// MARK: DebugPrintable
+	// MARK: CustomDebugStringConvertible
 
 	public var debugDescription: String {
 		return debugDescribe(self)
@@ -255,7 +255,7 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCo
 	/// Constructs a `Multiset` with a sequence of element/count pairs.
 	private init<S: SequenceType where S.Generator.Element == Dictionary<Element, Int>.Element>(values: S) {
 		self.values = [:]
-		for (element, count) in SequenceOf<(Element, Int)>(values) {
+		for (element, count) in AnySequence<(Element, Int)>(values) {
 			if count > 0 { self.values[element] = count }
 		}
 	}

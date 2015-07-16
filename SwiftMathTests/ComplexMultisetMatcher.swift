@@ -14,12 +14,12 @@ import Set
 // Using the same value as Nimble's default delta constant
 let DefaultDelta = 0.0001
 
-public func isCloseTo<T: RealType>(actual: Complex<T>, expected: Complex<T>) -> Bool {
+public func isCloseTo<T: RealType>(actual: Complex<T>, _ expected: Complex<T>) -> Bool {
     return abs(actual - expected) < T(DefaultDelta)
 }
 
 public func beCloseTo<T: RealType>(var expectedValue: Multiset<Complex<T>>) -> MatcherFunc<Multiset<Complex<T>>> {
-    println("Expected value is: \(expectedValue)")
+    print("Expected value is: \(expectedValue)")
     return MatcherFunc { actualExpression, failureMessage in
         failureMessage.postfixMessage = "be close to <\(expectedValue)>"
         if let value = actualExpression.evaluate() {
@@ -41,7 +41,7 @@ public func beCloseTo<T: RealType>(var expectedValue: Multiset<Complex<T>>) -> M
                     return false
                 }
             }
-            println("Expected value NOW is: \(expectedValue)")
+            print("Expected value NOW is: \(expectedValue)")
             return expectedValue.isEmpty
         } else {
             return false

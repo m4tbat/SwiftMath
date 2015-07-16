@@ -6,24 +6,12 @@ public func allPass<T,U where U: SequenceType, U.Generator.Element == T>
 }
 
 public func allPass<T,U where U: SequenceType, U.Generator.Element == T>
-    (passName:String, passFunc: (T?) -> Bool) -> NonNilMatcherFunc<U> {
+    (passName: String, _ passFunc: (T?) -> Bool) -> NonNilMatcherFunc<U> {
         return createAllPassMatcher() {
             expression, failureMessage in
             failureMessage.postfixMessage = passName
             return passFunc(expression.evaluate())
         }
-}
-
-public func allPass<U,V where U: SequenceType, V: NonNilBasicMatcher, U.Generator.Element == V.ValueType>
-    (matcher: V) -> NonNilMatcherFunc<U> {
-        let wrapper = NonNilMatcherWrapper(NonNilBasicMatcherWrapper(matcher))
-        return createAllPassMatcher() {wrapper.matches($0, failureMessage: $1)}
-}
-
-public func allPass<U,V where U: SequenceType, V: BasicMatcher, U.Generator.Element == V.ValueType>
-    (matcher: V) -> NonNilMatcherFunc<U> {
-        let wrapper = BasicMatcherWrapper(matcher: matcher)
-        return createAllPassMatcher() {wrapper.matches($0, failureMessage: $1)}
 }
 
 public func allPass<U,V where U: SequenceType, V: Matcher, U.Generator.Element == V.ValueType>
@@ -59,7 +47,8 @@ private func createAllPassMatcher<T,U where U: SequenceType, U.Generator.Element
 
 extension NMBObjCMatcher {
     public class func allPassMatcher(matcher: NMBObjCMatcher) -> NMBObjCMatcher {
-        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage, location in
+        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
+            let location = actualExpression.location
             let actualValue = actualExpression.evaluate()
             var nsObjects = [NSObject]()
             

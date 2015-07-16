@@ -18,15 +18,15 @@ class QuaternionSpec: QuickSpec {
         var d: Quaternion<Double>!
         
         beforeEach {
-            c = Quaternion(3, VectorR3(x: 1, y: 2, z: 3))
-            d = Quaternion(7.0, VectorR3(x: 5, y: 4, z: 3))
+            c = Quaternion(3, Vector3(x: 1, y: 2, z: 3))
+            d = Quaternion(7.0, Vector3(x: 5, y: 4, z: 3))
         }
         
         describe("Quaternion") {
             it("is real iff .im == the zero vector") {
                 let realQuaternion = Quaternion(42.0, .zero())
                 expect(realQuaternion.isReal).to(beTrue())
-                let nonRealQuaternion = Quaternion(42.0, VectorR3(x: 1, y: 2, z: 3))
+                let nonRealQuaternion = Quaternion(42.0, Vector3(x: 1, y: 2, z: 3))
                 expect(nonRealQuaternion.isReal).to(beFalse())
             }
         }

@@ -24,7 +24,7 @@ extension Float {
 
 public struct Complex<T: RealType> {
     
-    public let (re: T, im: T)
+    public let (re, im): (T, T)
     
     public let isReal: Bool
     
@@ -124,7 +124,7 @@ public func == <T>(lhs: T, rhs: Complex<T>) -> Bool {
     return rhs.re == lhs && rhs.im.isZero
 }
 
-extension Complex: Printable {
+extension Complex: CustomStringConvertible {
     
     public var description: String {
         let plus = im.isSignMinus ? "" : "+"
@@ -276,7 +276,7 @@ public func log10<T: RealType>(r: T) -> T {
 }
 
 // pow(b, x)
-public func pow<T>(lhs: Complex<T>, rhs: Complex<T>) -> Complex<T> {
+public func pow<T>(lhs: Complex<T>, _ rhs: Complex<T>) -> Complex<T> {
     if rhs.isZero {
         return Complex(T(1), T(0)) // x ** 0 == 1
     } else if lhs.isZero && rhs.isReal && rhs.re > T(0) {
@@ -291,11 +291,11 @@ public func pow<T>(lhs: Complex<T>, rhs: Complex<T>) -> Complex<T> {
     }
 }
 
-public func pow<T>(lhs: Complex<T>, rhs: T) -> Complex<T> {
+public func pow<T>(lhs: Complex<T>, _ rhs: T) -> Complex<T> {
     return pow(lhs, Complex(rhs, T(0)))
 }
 
-public func pow<T>(lhs:T, rhs:Complex<T>) -> Complex<T> {
+public func pow<T>(lhs:T, _ rhs: Complex<T>) -> Complex<T> {
     return pow(Complex(lhs, T(0)), rhs)
 }
 
@@ -324,7 +324,7 @@ public func **= <T>(inout lhs: Complex<T>, rhs: Complex<T>) {
     lhs = pow(lhs, rhs)
 }
 
-public func **= <T>(inout lhs: Complex<T>, rhs:T) {
+public func **= <T>(inout lhs: Complex<T>, rhs: T) {
     lhs = pow(lhs, rhs)
 }
 

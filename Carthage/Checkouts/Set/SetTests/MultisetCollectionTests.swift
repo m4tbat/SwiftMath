@@ -5,6 +5,6 @@ import XCTest
 
 final class MultisetCollectionTests: XCTestCase {
 	func testIndexesElementsByMultiplicity() {
-		XCTAssertEqual(map(Multiset(1, 1, 1, 2, 2, 3)) { _ in () }.count, 6)
+		XCTAssertEqual(Multiset(1, 1, 1, 2, 2, 3).map { _ in () }.count, 6)
 	}
 }

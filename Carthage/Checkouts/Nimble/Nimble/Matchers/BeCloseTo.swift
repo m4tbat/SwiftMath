@@ -1,6 +1,6 @@
 import Foundation
 
-let DefaultDelta = 0.0001
+internal let DefaultDelta = 0.0001
 
 internal func isCloseTo(actualValue: Double?, expectedValue: Double, delta: Double, failureMessage: FailureMessage) -> Bool {
     failureMessage.postfixMessage = "be close to <\(stringify(expectedValue))> (within \(stringify(delta)))"
@@ -18,7 +18,7 @@ internal func isCloseTo(actualValue: Double?, expectedValue: Double, delta: Doub
 /// @see equal
 public func beCloseTo(expectedValue: Double, within delta: Double = DefaultDelta) -> NonNilMatcherFunc<Double> {
     return NonNilMatcherFunc { actualExpression, failureMessage in
-        return isCloseTo(actualExpression.evaluate(), expectedValue, delta, failureMessage)
+        return isCloseTo(actualExpression.evaluate(), expectedValue: expectedValue, delta: delta, failureMessage: failureMessage)
     }
 }
 
@@ -28,7 +28,7 @@ public func beCloseTo(expectedValue: Double, within delta: Double = DefaultDelta
 /// @see equal
 public func beCloseTo(expectedValue: NMBDoubleConvertible, within delta: Double = DefaultDelta) -> NonNilMatcherFunc<NMBDoubleConvertible> {
     return NonNilMatcherFunc { actualExpression, failureMessage in
-        return isCloseTo(actualExpression.evaluate()?.doubleValue, expectedValue.doubleValue, delta, failureMessage)
+        return isCloseTo(actualExpression.evaluate()?.doubleValue, expectedValue: expectedValue.doubleValue, delta: delta, failureMessage: failureMessage)
     }
 }
 
@@ -45,7 +45,7 @@ public func beCloseTo(expectedValue: NMBDoubleConvertible, within delta: Double 
             return actualExpression() as? NMBDoubleConvertible
         })
         let expr = Expression(expression: actualBlock, location: location)
-        let matcher = NonNilMatcherWrapper(NonNilBasicMatcherWrapper(beCloseTo(self._expected, within: self._delta)))
+        let matcher = beCloseTo(self._expected, within: self._delta)
         return matcher.matches(expr, failureMessage: failureMessage)
     }
 
@@ -54,7 +54,7 @@ public func beCloseTo(expectedValue: NMBDoubleConvertible, within delta: Double 
             return actualExpression() as? NMBDoubleConvertible
         })
         let expr = Expression(expression: actualBlock, location: location)
-        let matcher = NonNilMatcherWrapper(NonNilBasicMatcherWrapper(beCloseTo(self._expected, within: self._delta)))
+        let matcher = beCloseTo(self._expected, within: self._delta)
         return matcher.doesNotMatch(expr, failureMessage: failureMessage)
     }
 
@@ -78,7 +78,7 @@ public func beCloseTo(expectedValues: [Double], within delta: Double = DefaultDe
             if actual.count != expectedValues.count {
                 return false
             } else {
-                for (index, actualItem) in enumerate(actual) {
+                for (index, actualItem) in actual.enumerate() {
                     if fabs(actualItem - expectedValues[index]) > delta {
                         return false
                     }

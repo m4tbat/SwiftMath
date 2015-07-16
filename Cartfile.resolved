@@ -1,3 +1,3 @@
-github "Quick/Nimble" "v0.4.2"
-github "Quick/Quick" "v0.3.1"
-github "robrix/Set" "1.4.1"
+github "Quick/Nimble" "dbc5bb3e2bd7e7ce322b128d674983937bbffd57"
+github "Quick/Quick" "v0.5.0"
+github "madbat/Set" "377ce8be07a6f8a8b7b0b0fe5b89403c9c3b4658"
