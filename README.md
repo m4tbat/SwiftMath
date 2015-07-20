@@ -2,10 +2,10 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-SwiftMath is a Swift microframework providing some useful math constructs and functions, like complex numbers, 3D vectors, quaternions, and polynomial equation solving.
+SwiftMath is a Swift framework providing some useful math constructs and functions, like complex numbers, 3D vectors, quaternions, and polynomial equation solving.
 
 :warning: *SwiftMath is work in progress. Master is currently targeting Swift 2.0 (beta3).
-For Swift 1.2 compatibility checkout the release [0.1.1](https://github.com/madbat/SwiftMath/releases/tag/v0.1.1)*
+For a Swift 1.2-compatibile version, checkout the release [0.1.1](https://github.com/madbat/SwiftMath/releases/tag/v0.1.1)*
 
 ##Requirements
 
@@ -19,7 +19,7 @@ SwiftMath can be installed through the dependency manager [Carthage](https://git
 github "madbat/SwiftMath"
 ```
 *	In the terminal, run `carthage update`
-*	Link your project target(s) with the built frameworks. Application targets should also ensure that the framework gets copied into their application bundle. 
+*	Link your project target(s) with the built frameworks. Application targets should also ensure that the framework gets copied into their application bundle.
 
 ##Usage
 
