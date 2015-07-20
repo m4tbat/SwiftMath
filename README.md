@@ -4,7 +4,7 @@
 
 SwiftMath is a Swift microframework providing some useful math constructs and functions, like complex numbers, 3D vectors, quaternions, and polynomial equation solving.
 
-⚠️ *SwiftMath is work in progress. Master is currently targeting Swift 2.0 (beta3).
+:warning: *SwiftMath is work in progress. Master is currently targeting Swift 2.0 (beta3).
 For Swift 1.2 compatibility checkout the release [0.1.1](https://github.com/madbat/SwiftMath/releases/tag/v0.1.1)*
 
 ##Requirements
