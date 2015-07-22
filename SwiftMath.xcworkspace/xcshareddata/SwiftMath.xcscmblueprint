@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "97555501B95738B317CD1497A64FF46A22826C24",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A446EC52AB68AB3BEF60C80CCCF3CA89E9A68DB1" : 0,
+    "97555501B95738B317CD1497A64FF46A22826C24" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6BFCD71F-79A5-457C-A735-AE60BD77DCDB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A446EC52AB68AB3BEF60C80CCCF3CA89E9A68DB1" : "Set\/",
+    "97555501B95738B317CD1497A64FF46A22826C24" : "SwiftMath\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SwiftMath",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SwiftMath.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/madbat\/SwiftMath.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "97555501B95738B317CD1497A64FF46A22826C24"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/madbat\/Set.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A446EC52AB68AB3BEF60C80CCCF3CA89E9A68DB1"
+    }
+  ]
+}

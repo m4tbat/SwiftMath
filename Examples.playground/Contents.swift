@@ -3,11 +3,12 @@
 import UIKit
 import SwiftMath
 
-var str = "Hello, playground"
+let p = Polynomial(1, -0.0004, 345)
 
-//let p = Polynomial(1,2,1)
+let v1 = Vector3(x: 10, y: 20, z: 5)
+let v2 = Vector3(x: 10, y: 5, z: 20)
 
-let c = Complex(1.0,0.0)
+v1.crossProduct(v2)
 
-"Done"
-print(1)
+
+v1.lin

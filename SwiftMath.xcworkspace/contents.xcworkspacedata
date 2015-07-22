@@ -5,6 +5,9 @@
       location = "container:SwiftMath.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../Set/Set.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:/Users/matteo/Projects/madbat/Frameworks/SwiftMath/Examples.playground">
    </FileRef>
 </Workspace>

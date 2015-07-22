@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		950390CF1B1DE8550089C407 /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950390CE1B1DE8550089C407 /* Set.framework */; };
-		950390D81B1DE89C0089C407 /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950390CE1B1DE8550089C407 /* Set.framework */; };
 		95086CBC1AFECCC9004158D8 /* ComplexMultisetMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95086CBB1AFECCC9004158D8 /* ComplexMultisetMatcher.swift */; };
 		9528986F1AF3C83B007BD3BF /* SwiftMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 9528986E1AF3C83B007BD3BF /* SwiftMath.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		952898751AF3C83B007BD3BF /* SwiftMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 952898691AF3C83B007BD3BF /* SwiftMath.framework */; };
@@ -17,6 +15,8 @@
 		9528988C1AF3CD07007BD3BF /* Quaternion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898871AF3CD07007BD3BF /* Quaternion.swift */; };
 		9528988D1AF3CD07007BD3BF /* RealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898881AF3CD07007BD3BF /* RealType.swift */; };
 		9528988E1AF3CD07007BD3BF /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898891AF3CD07007BD3BF /* Vector3.swift */; };
+		9534DF2A1B5F0C520057DC11 /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9534DF291B5F0C520057DC11 /* Set.framework */; };
+		9534DF2C1B5F0C6F0057DC11 /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9534DF2B1B5F0C6F0057DC11 /* Set.framework */; };
 		956609D81B1B68D500392B90 /* QuaternionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D71B1B68D500392B90 /* QuaternionTests.swift */; };
 		956609DA1B1B68ED00392B90 /* VectorR3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D91B1B68ED00392B90 /* VectorR3Tests.swift */; };
 		956609DD1B1CB61600392B90 /* VectorR3Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609DC1B1CB61600392B90 /* VectorR3Matcher.swift */; };
@@ -24,8 +24,6 @@
 		9591F05C1B5802EF00C52F80 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9591F05A1B5802EF00C52F80 /* Vector2.swift */; };
 		9591F05E1B58041000C52F80 /* VectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9591F05D1B58041000C52F80 /* VectorType.swift */; };
 		9591F05F1B58041000C52F80 /* VectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9591F05D1B58041000C52F80 /* VectorType.swift */; };
-		959439B31B1FB06C00D32EFC /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959439B21B1FB06C00D32EFC /* Set.framework */; };
-		959439B61B1FB0BE00D32EFC /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959439B21B1FB06C00D32EFC /* Set.framework */; };
 		959439B91B1FB1C900D32EFC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959439B71B1FB1C900D32EFC /* Nimble.framework */; };
 		959439BA1B1FB1C900D32EFC /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959439B81B1FB1C900D32EFC /* Quick.framework */; };
 		959439C31B1FB43300D32EFC /* SwiftMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 9528986E1AF3C83B007BD3BF /* SwiftMath.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,8 +38,6 @@
 		959439D01B1FBA6600D32EFC /* VectorR3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D91B1B68ED00392B90 /* VectorR3Tests.swift */; };
 		959439D11B1FBA6600D32EFC /* ComplexMultisetMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95086CBB1AFECCC9004158D8 /* ComplexMultisetMatcher.swift */; };
 		959439D21B1FBA6600D32EFC /* VectorR3Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609DC1B1CB61600392B90 /* VectorR3Matcher.swift */; };
-		959439DA1B1FBFB100D32EFC /* Set.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 950390CE1B1DE8550089C407 /* Set.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		959439E01B1FC27200D32EFC /* Set.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 959439B21B1FB06C00D32EFC /* Set.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		959439E11B1FC27300D32EFC /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 959439B71B1FB1C900D32EFC /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		959439E21B1FC27300D32EFC /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 959439B81B1FB1C900D32EFC /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		959439E31B1FC41C00D32EFC /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95ABF76A1AF97F260046B97A /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -79,7 +75,6 @@
 			files = (
 				959439E31B1FC41C00D32EFC /* Nimble.framework in CopyFiles */,
 				959439E41B1FC41C00D32EFC /* Quick.framework in CopyFiles */,
-				959439DA1B1FBFB100D32EFC /* Set.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +84,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				959439E01B1FC27200D32EFC /* Set.framework in CopyFiles */,
 				959439E11B1FC27300D32EFC /* Nimble.framework in CopyFiles */,
 				959439E21B1FC27300D32EFC /* Quick.framework in CopyFiles */,
 			);
@@ -98,7 +92,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		950390CE1B1DE8550089C407 /* Set.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Set.framework; path = Carthage/Build/iOS/Set.framework; sourceTree = "<group>"; };
 		95086CBB1AFECCC9004158D8 /* ComplexMultisetMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexMultisetMatcher.swift; sourceTree = "<group>"; };
 		952898691AF3C83B007BD3BF /* SwiftMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9528986D1AF3C83B007BD3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,13 +103,14 @@
 		952898871AF3CD07007BD3BF /* Quaternion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quaternion.swift; sourceTree = "<group>"; };
 		952898881AF3CD07007BD3BF /* RealType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealType.swift; sourceTree = "<group>"; };
 		952898891AF3CD07007BD3BF /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
+		9534DF291B5F0C520057DC11 /* Set.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Set.framework; path = "../Set/build/Debug-iphoneos/Set.framework"; sourceTree = "<group>"; };
+		9534DF2B1B5F0C6F0057DC11 /* Set.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Set.framework; path = ../Set/build/Debug/Set.framework; sourceTree = "<group>"; };
 		956609D71B1B68D500392B90 /* QuaternionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuaternionTests.swift; sourceTree = "<group>"; };
 		956609D91B1B68ED00392B90 /* VectorR3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorR3Tests.swift; sourceTree = "<group>"; };
 		956609DB1B1CB09F00392B90 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		956609DC1B1CB61600392B90 /* VectorR3Matcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorR3Matcher.swift; sourceTree = "<group>"; };
 		9591F05A1B5802EF00C52F80 /* Vector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
 		9591F05D1B58041000C52F80 /* VectorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorType.swift; sourceTree = "<group>"; };
-		959439B21B1FB06C00D32EFC /* Set.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Set.framework; path = Carthage/Build/Mac/Set.framework; sourceTree = "<group>"; };
 		959439B71B1FB1C900D32EFC /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		959439B81B1FB1C900D32EFC /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		95ABF76A1AF97F260046B97A /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = ../Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
@@ -132,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				950390CF1B1DE8550089C407 /* Set.framework in Frameworks */,
+				9534DF2A1B5F0C520057DC11 /* Set.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +134,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				950390D81B1DE89C0089C407 /* Set.framework in Frameworks */,
 				95ABF76C1AF97F260046B97A /* Nimble.framework in Frameworks */,
 				95ABF76D1AF97F260046B97A /* Quick.framework in Frameworks */,
 				952898751AF3C83B007BD3BF /* SwiftMath.framework in Frameworks */,
@@ -151,7 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				959439B31B1FB06C00D32EFC /* Set.framework in Frameworks */,
+				9534DF2C1B5F0C6F0057DC11 /* Set.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +154,6 @@
 			files = (
 				959439B91B1FB1C900D32EFC /* Nimble.framework in Frameworks */,
 				959439BA1B1FB1C900D32EFC /* Quick.framework in Frameworks */,
-				959439B61B1FB0BE00D32EFC /* Set.framework in Frameworks */,
 				95C1A36F1B1FAF7F00FB5967 /* SwiftMath.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,8 +201,8 @@
 				952898871AF3CD07007BD3BF /* Quaternion.swift */,
 				952898881AF3CD07007BD3BF /* RealType.swift */,
 				9591F05D1B58041000C52F80 /* VectorType.swift */,
-				952898891AF3CD07007BD3BF /* Vector3.swift */,
 				9591F05A1B5802EF00C52F80 /* Vector2.swift */,
+				952898891AF3CD07007BD3BF /* Vector3.swift */,
 				9528986C1AF3C83B007BD3BF /* Supporting Files */,
 			);
 			path = SwiftMath;
@@ -250,7 +242,7 @@
 		959439B41B1FB07700D32EFC /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				950390CE1B1DE8550089C407 /* Set.framework */,
+				9534DF291B5F0C520057DC11 /* Set.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -258,7 +250,7 @@
 		959439B51B1FB08100D32EFC /* Mac */ = {
 			isa = PBXGroup;
 			children = (
-				959439B21B1FB06C00D32EFC /* Set.framework */,
+				9534DF2B1B5F0C6F0057DC11 /* Set.framework */,
 			);
 			name = Mac;
 			sourceTree = "<group>";

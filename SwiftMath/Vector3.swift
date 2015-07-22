@@ -19,22 +19,6 @@ public struct Vector3<Real: RealType>: VectorType {
         self.z = z
     }
     
-//    public var squareLength: Real {
-//        return self * self
-//    }
-//    
-//    public var length: Real {
-//        return norm
-//    }
-//    
-//    public var norm: Real {
-//        if x is Double {
-//            return sqrt(squareLength as! Double) as! Real
-//        } else {
-//            return sqrtf(squareLength as! Float) as! Real
-//        }
-//    }
-    
     public var components: (x: Real, y: Real, z: Real) {
         return (x, y, z)
     }
@@ -43,13 +27,50 @@ public struct Vector3<Real: RealType>: VectorType {
         return Vector3(x: 0.0, y: 0.0, z: 0.0)
     }
     
-//    public func unit() -> Vector3<Real> {
-//        return self / length
-//    }
+    public func scale(value: Real) -> Vector3 {
+        return Vector3(x: value * x, y: value * y, z: value * z)
+    }
+    
+    public func dotProduct(vector: Vector3) -> Real {
+        return (x * vector.x) + (y * vector.y) + (z * vector.z)
+    }
+    
+    public func crossProduct(vector: Vector3) -> Vector3 {
+        let cx = y * vector.z - z * vector.y
+        let cy = z * vector.x - x * vector.z
+        let cz = x * vector.y - y * vector.x
+        
+        return Vector3(x: cx, y: cy, z: cz)
+    }
     
     public func rotate(rotation: Quaternion<Real>) -> Vector3 {
         assert(rotation.length == 1.0, "rotation is not a unit-length quaternion")
         return self + (rotation.im + rotation.im) × (rotation.im × self + rotation.re * self)
+    }
+    
+    public func linearDependency(vector: Vector3) -> Real? {
+        let a: Real? = vector.x.isZero ? nil : (x / vector.x)
+        let b: Real? = vector.y.isZero ? nil : (y / vector.y)
+        let c: Real? = vector.z.isZero ? nil : (z / vector.z)
+        
+        switch (a, b, c) {
+        case let (t, nil, nil):
+            return y.isZero && z.isZero ? t : nil
+        case let (nil, t, nil):
+            return x.isZero && z.isZero ? t : nil
+        case let (nil, nil, t):
+            return x.isZero && y.isZero ? t : nil
+        case let (t, u, nil) where t == u:
+            return z.isZero ? t : nil
+        case let (t, nil, u) where t == u:
+            return y.isZero ? t : nil
+        case let (nil, t, u) where t == u:
+            return x.isZero ? t : nil
+        case let (t, u, v) where (t == u) && (t == v):
+            return t
+        default:
+            return nil
+        }
     }
 
 }
@@ -62,7 +83,7 @@ extension Vector3 : Hashable {
         if self.x is Double {
             return Int((x as! Double) + (y*10_000.0 as! Double) + (z*100_000_000.0 as! Double))
         } else {
-            return Int((x as! Float) * (y*10_000.0 as! Float) * (z*100_000_000.0 as! Float))
+            return Int((x as! Float) + (y*10_000.0 as! Float) + (z*100_000_000.0 as! Float))
         }
     }
     
@@ -86,55 +107,10 @@ public prefix func - <Real: RealType>(vector: Vector3<Real>) -> Vector3<Real> {
     return Vector3(x: -vector.x, y: -vector.y, z: -vector.z)
 }
 
-public func * <Real: RealType>(scalar: Real, vector: Vector3<Real>) -> Vector3<Real> {
-    return Vector3(x: vector.x * scalar, y: vector.y * scalar, z: vector.z * scalar)
-    
-}
-
-public func / <Real: RealType>(vector: Vector3<Real>, scalar: Real) -> Vector3<Real> {
-    return Vector3(x: vector.x / scalar, y: vector.y / scalar, z: vector.z / scalar)
-}
-
-public func dotProduct<Real: RealType>(v1: Vector3<Real>, v2: Vector3<Real>) -> Real {
-    return (v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z)
-}
-
-/// Dot product
-public func * <Real: RealType>(v1: Vector3<Real>, v2: Vector3<Real>) -> Real {
-    return dotProduct(v1, v2: v2)
-}
-
-public func crossProduct<Real: RealType>(v1: Vector3<Real>, v2: Vector3<Real>) -> Vector3<Real> {
-    let x = v1.y * v2.z - v1.z * v2.y
-    let y = v1.z * v2.x - v1.x * v2.z
-    let z = v1.x * v2.y - v1.y * v2.x
-    
-    return Vector3(x: x, y: y, z: z)
-}
-
-public func linearDependency<Real: RealType>(v1: Vector3<Real>, v2: Vector3<Real>) -> Real? {
-    let a: Real? = (!v2.x.isZero) ? (v1.x / v2.x) : nil
-    let b: Real? = (!v2.y.isZero) ? (v1.y / v2.y) : nil
-    let c: Real? = (!v2.z.isZero) ? (v1.z / v2.z) : nil
-    
-    switch (a, b, c) {
-    case let (t, nil, nil):
-        return (v1.y.isZero) && (v1.z.isZero) ? t : nil
-    case let (nil, t, nil):
-        return (v1.x.isZero) && (v1.z.isZero) ? t : nil
-    case let (nil, nil, t):
-        return (v1.x.isZero) && (v1.y.isZero) ? t : nil
-    case let (t, u, nil) where t == u:
-        return (v1.z.isZero) ? t : nil
-    case let (t, nil, u) where t == u:
-        return (v1.y.isZero) ? t : nil
-    case let (nil, t, u) where t == u:
-        return (v1.x.isZero) ? t : nil
-    case let (t, u, v) where (t == u) && (t == v):
-        return t
-    default:
-        return nil
-    }
+infix operator × { associativity left precedence 150 }
+/// Cross product
+public func × <Real: RealType>(v1: Vector3<Real>, v2: Vector3<Real>) -> Vector3<Real> {
+    return v1.crossProduct(v2)
 }
 
 extension Vector3: CustomStringConvertible {
