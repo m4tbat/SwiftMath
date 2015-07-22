@@ -8,94 +8,90 @@
 
 import Foundation
 
-public struct Quaternion<T: RealType> : Equatable {
+public struct Quaternion<Real: RealType> : Equatable {
     
-    public let re: T
-    public let im: Vector3<T>
+    public let re: Real
+    public let im: Vector3<Real>
     
     public let isReal: Bool
     
-    public init(_ re: T, _ im: Vector3<T>) {
+    public init(_ re: Real, _ im: Vector3<Real>) {
         self.re = re
         self.im = im
         isReal = im == Vector3.zero()
     }
     
-    public init(axis: Vector3<T>, angle: T) {
+    public init(axis: Vector3<Real>, angle: Real) {
         assert(axis.length == 1.0, "axis is not a unit-length vector")
         let halfAngle = angle/2.0
         self.init(halfAngle.cos(), axis * halfAngle.sin())
     }
     
-    public static func id() -> Quaternion<T> {
+    public static func id() -> Quaternion<Real> {
         return Quaternion(1.0, .zero())
     }
     
-    public var squareLength: T {
+    public var squareLength: Real {
         return re * re + im * im
     }
     
-    public var length: T {
+    public var length: Real {
         return norm
     }
     
-    public var norm: T {
-        if re is Double {
-            return sqrt(squareLength as! Double) as! T
-        } else {
-            return sqrtf(squareLength as! Float) as! T
-        }
+    public var norm: Real {
+        return squareLength.sqrt()
     }
     
-    public func unit() -> Quaternion<T> {
+    public func unit() -> Quaternion<Real> {
         return self / length
     }
     
-    public func conj() -> Quaternion<T> {
+    public func conj() -> Quaternion<Real> {
         return Quaternion(re, -im)
     }
     
-    public func reciprocal() -> Quaternion<T> {
+    public func reciprocal() -> Quaternion<Real> {
         return self.conj() / squareLength
     }
     
 }
 
-public func == <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Bool {
+public func == <Real: RealType>(lhs: Quaternion<Real>, rhs: Quaternion<Real>) -> Bool {
     return lhs.re == rhs.re && lhs.im == rhs.im
 }
 
-public func + <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Quaternion<T> {
+public func + <Real: RealType>(lhs: Quaternion<Real>, rhs: Quaternion<Real>) -> Quaternion<Real> {
     return Quaternion(lhs.re + rhs.re, lhs.im + rhs.im)
 }
 
-public func - <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Quaternion<T> {
+public func - <Real: RealType>(lhs: Quaternion<Real>, rhs: Quaternion<Real>) -> Quaternion<Real> {
     return Quaternion(lhs.re - rhs.re, lhs.im - rhs.im)
 }
 
-public func * <T: RealType>(lhs: T, rhs: Quaternion<T>) -> Quaternion<T> {
+public func * <Real: RealType>(lhs: Real, rhs: Quaternion<Real>) -> Quaternion<Real> {
     return Quaternion(rhs.re * lhs, rhs.im * lhs)
 }
 
-public func * <T: RealType>(lhs: Quaternion<T>, rhs: T) -> Quaternion<T> {
+public func * <Real: RealType>(lhs: Quaternion<Real>, rhs: Real) -> Quaternion<Real> {
     return rhs * lhs
 }
 
-public func / <T: RealType>(quaternion: Quaternion<T>, scalar: T) -> Quaternion<T> {
+public func / <Real: RealType>(quaternion: Quaternion<Real>, scalar: Real) -> Quaternion<Real> {
     return 1.0/scalar * quaternion
 }
 
 /// Dot product
-public func dotProduct<T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> T {
+public func dotProduct<Real: RealType>(lhs: Quaternion<Real>, rhs: Quaternion<Real>) -> Real {
     return lhs.re * rhs.re + lhs.im * rhs.im
 }
 
 /// Dot product
-public func * <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> T {
+public func * <Real: RealType>(lhs: Quaternion<Real>, rhs: Quaternion<Real>) -> Real {
     return dotProduct(lhs, rhs: rhs)
 }
 
-public func multiply<T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Quaternion<T> {
+public func multiply<Real: RealType>(lhs: Quaternion<Real>, rhs: Quaternion<Real>) -> Quaternion<Real> {
     let re = lhs.re * rhs.re - lhs.im * rhs.im
     let im = lhs.re * rhs.im + rhs.re * lhs.im + lhs.im × rhs.im
     return Quaternion(re, im)
@@ -103,7 +99,7 @@ public func multiply<T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Qua
 
 infix operator × { associativity left precedence 150 }
 /// Multiplication
-public func × <T: RealType>(lhs: Quaternion<T>, rhs: Quaternion<T>) -> Quaternion<T> {
+public func × <Real: RealType>(lhs: Quaternion<Real>, rhs: Quaternion<Real>) -> Quaternion<Real> {
     return multiply(lhs, rhs: rhs)
 }
 

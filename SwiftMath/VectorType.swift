@@ -10,7 +10,7 @@ import Foundation
 
 public protocol VectorType {
     
-    typealias Real = RealType
+    typealias Real: RealType
     
     var squareLength: Real { get }
     
@@ -53,13 +53,7 @@ extension VectorType {
     }
     
     public var norm: Real {
-        // TODO: de-uglify this code (`return squareLength.sqrt()` should work, but fails to compile... 😒)
-        let lengthSquared = squareLength
-        if lengthSquared is Double {
-            return sqrt(lengthSquared as! Double) as! Real
-        } else {
-            return sqrtf(lengthSquared as! Float) as! Real
-        }
+        return squareLength.sqrt()
     }
     
     public func unit() -> Self {
