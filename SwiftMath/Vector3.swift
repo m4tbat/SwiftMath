@@ -47,31 +47,6 @@ public struct Vector3<Real: RealType>: VectorType {
         assert(rotation.length == 1.0, "rotation is not a unit-length quaternion")
         return self + (rotation.im + rotation.im) × (rotation.im × self + rotation.re * self)
     }
-    
-    public func linearDependency(vector: Vector3) -> Real? {
-        let a: Real? = vector.x.isZero ? nil : (x / vector.x)
-        let b: Real? = vector.y.isZero ? nil : (y / vector.y)
-        let c: Real? = vector.z.isZero ? nil : (z / vector.z)
-        
-        switch (a, b, c) {
-        case let (t, nil, nil):
-            return y.isZero && z.isZero ? t : nil
-        case let (nil, t, nil):
-            return x.isZero && z.isZero ? t : nil
-        case let (nil, nil, t):
-            return x.isZero && y.isZero ? t : nil
-        case let (t, u, nil) where t == u:
-            return z.isZero ? t : nil
-        case let (t, nil, u) where t == u:
-            return y.isZero ? t : nil
-        case let (nil, t, u) where t == u:
-            return x.isZero ? t : nil
-        case let (t, u, v) where (t == u) && (t == v):
-            return t
-        default:
-            return nil
-        }
-    }
 
 }
 

@@ -37,8 +37,6 @@ public protocol VectorType {
     func scale(value: Real) -> Self
     
     func dotProduct(vector: Self) -> Real
-//
-//    func linearDependency(v1: Self, v2: Self) -> Real?
     
     func squareDistanceTo(vector: Self) -> Real
     
