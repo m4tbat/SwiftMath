@@ -2,7 +2,7 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-:triangular_ruler: SwiftMath is a Swift framework providing some useful math constructs and functions, like complex numbers, 2D and 3D vectors, quaternions, and polynomials.
+SwiftMath is a Swift framework providing some useful math constructs and functions, like complex numbers, 2D and 3D vectors, quaternions, and polynomials.
 
 :warning: *SwiftMath is work in progress. Master is currently targeting Swift 2.0 (beta 4).
 For a Swift 1.2-compatibile version, checkout the release [0.1.1](https://github.com/madbat/SwiftMath/releases/tag/v0.1.1)*
@@ -13,7 +13,7 @@ SwiftMath requires iOS 8.0+ / OS X 10.9+.
 
 ##Installation
 
-SwiftMath can be installed through the dependency manager [Carthage](https://github.com/Carthage/Carthage).
+SwiftMath can be installed with the dependency manager [Carthage](https://github.com/Carthage/Carthage).
 *	Add the following line to your project's Cartfile
 ```
 github "madbat/SwiftMath"
@@ -23,23 +23,23 @@ github "madbat/SwiftMath"
 
 ##Usage
 
-###VectorR3
+###Vector3
 
-VectorR3 — as the name suggests — represents a vector in the three-dimensional Euclidean space (aka R×R×R).
+Vector3 — as the name suggests — represents a vector in the three-dimensional Euclidean space (aka R×R×R).
 Some of the most common uses of 3D vectors consist in encoding physical quantities like position, velocity, acceleration, force, and many others.
 
 ```swift
-let v1 = VectorR3(x: 1, y: 2, z: 3)
-let v2 = VectorR3(x: 5, y: 6, z: 7)
+let v1 = Vector3(x: 1, y: 2, z: 3)
+let v2 = Vector3(x: 5, y: 6, z: 7)
 
 // vector sum
-let v3 = v1 + v2 // VectorR3(x: 6, y: 8, z: 10)
+let v3 = v1 + v2 // Vector3(x: 6, y: 8, z: 10)
 
 // length
 v3.length // equals v3.norm
 
 // zero vector
-Vector.zero() // VectorR3(x: 0, y: 0, z: 0)
+Vector.zero() // Vector3(x: 0, y: 0, z: 0)
 
 // unit-length vector
 v3.unit() // divides v3 by its length
@@ -76,39 +76,27 @@ They're handy to rotate three-dimensional vectors.
 
 ```swift
 // rotating a vector by π/2 around its x axis
-let original = VectorR3(x: 3, y: 4, z: 0)
-let rotation = Quaternion(axis: VectorR3(x: 1, y: 0, z: 0), angle: Double.PI/2.0)
-let rotated = original.rotate(rotation) // VectorR3(x: 3, y: 0, z: 4.0)
+let original = Vector3(x: 3, y: 4, z: 0)
+let rotation = Quaternion(axis: Vector3(x: 1, y: 0, z: 0), angle: Double.PI/2.0)
+let rotated = original.rotate(rotation) // Vector3(x: 3, y: 0, z: 4.0)
 ```
 
-###Polynomials
+###Polynomial
 
-SwiftMath provides functions to find (complex) roots of polynomials, by analytic and numeric means:
--	`linear`: analytically find roots of a polynomial of degree 1
--	`quadratic`: analytically find roots of a polynomial of degree 2
--	`cubic`: analytically find roots of a polynomial of degree 3
--	`quartic`: analytically find roots of a polynomial of degree 4
--	`polynomial`: find roots of a polynomial of degree equal to the number of passed-in arguments, minus 1. If degree <= 4, defaults to using the analytic method (by calling one of the above functions), while if `preferClosedFormSolution: false`, or degree > 4, uses the the [Durand-Kerner method](http://en.wikipedia.org/wiki/Durand%E2%80%93Kerner_method).
+Polynomial lets you represent – and find the roots of – a polynomial expression.
 
+The following snippet shows how to express the polynomial `x^2 + 4x + 8`
 ```swift
-// The roots of a polynomial are represented as a (multi)set of complex numbers
-var roots: Multiset<Complex<Double>>
-// x + 3 = 0
-roots = linear(1, 3) // roots contains (-3 + 0.i)
-// x^2 + 2x + 1 = 0
-roots = quadratic(1, 2, 1) // roots contains (-1 + 0.i) with a multiplicity of 2
-// x^3 + x^2 + x + 1 = 0
-roots = cubic(1, 1, 1, 1) // roots contains (-1 + 0.i, 1.i, -1.i)
-// x^4 + x^3 + x^2 + x = 0
-roots = quartic(1, 1, 1, 1, 0) // roots contains (0.i, -1 + 0.i, -1.i, 1.i)
-// the polynomial function can be used in place of the above functions
-roots = polynomial([1, 1, 1, 1, 0]) // is equivalent to quartic(1, 1, 1, 1, 0)
-// the polynomial function has the ability to use a numeric method instead of the analytic one
-roots = polynomial(preferClosedFormSolution: false, [1, 1, 1, 1, 0]) // roots will be a very close approximation to the analytic ones
-// for polynomials of degree > 4, polynomial can only use the numeric method
-roots = polynomial([1, -5, 2.3, 0, 42, -0.8]) // will solve numerically the polynomial x^5 - 5x^4 + 2.3x^3 + 42x - 0.8 = 0
-
+let p = Polynomial(1, 4, 8)
 ```
+
+Use Polynomial's `roots()` method to calculate its roots, represented as a (multi)set of complex numbers:
+```swift
+p.roots() // returns { (-2 - 2i), (-2 + 2i) }
+```
+For polynomials of degree <= 4, `roots()` defaults to using the analytic method, while for polynomials of higher degrees it uses the the [Durand-Kerner method](http://en.wikipedia.org/wiki/Durand%E2%80%93Kerner_method).
+It is possible to force the root finding process to use the numeric method also for polynomials
+of degree <= 4, using `roots(preferClosedFormSolution: false)`.
 
 ##Contributing
 
