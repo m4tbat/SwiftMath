@@ -45,6 +45,10 @@ Vector.zero() // Vector3(x: 0, y: 0, z: 0)
 v3.unit() // divides v3 by its length
 ```
 
+###Vector2
+
+Pretty much like `Vector3`, but for 2D vectors.
+
 ###Complex
 
 Complex numbers extend real numbers in order to solve problems that cannot be solved with real numbers alone.
