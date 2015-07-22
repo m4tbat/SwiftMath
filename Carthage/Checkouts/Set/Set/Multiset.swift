@@ -1,7 +1,7 @@
 //  Copyright (c) 2015 Rob Rix. All rights reserved.
 
 /// A multiset of elements and their counts.
-public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCollectionType, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
+public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, RangeReplaceableCollectionType, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
 	// MARK: Constructors
 
 	/// Constructs a `Multiset` with the elements of `sequence`.
@@ -216,6 +216,10 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, ExtensibleCo
 	/// Appends `element` onto the `Multiset`.
 	public mutating func append(element: Element) {
 		insert(element)
+	}
+	
+	public mutating func replaceRange<C: CollectionType where C.Generator.Element == Element>(subRange: Range<Multiset.Index>, with newElements: C) {
+		fatalError("Not implemented!")
 	}
 
 
