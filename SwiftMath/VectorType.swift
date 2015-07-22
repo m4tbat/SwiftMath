@@ -53,10 +53,12 @@ extension VectorType {
     }
     
     public var norm: Real {
-        if Real.self is Double {
-            return sqrt(squareLength as! Double) as! Real
+        // TODO: de-uglify this code (`return squareLength.sqrt()` should work, but fails to compile... 😒)
+        let lengthSquared = squareLength
+        if lengthSquared is Double {
+            return sqrt(lengthSquared as! Double) as! Real
         } else {
-            return sqrtf(squareLength as! Float) as! Real
+            return sqrtf(lengthSquared as! Float) as! Real
         }
     }
     
@@ -75,7 +77,6 @@ extension VectorType {
 }
 
 // MARK: Operators
-
 
 public func * <Vector: VectorType, Real: RealType where Vector.Real == Real>(scalar: Real, vector: Vector) -> Vector {
     return vector.scale(scalar)

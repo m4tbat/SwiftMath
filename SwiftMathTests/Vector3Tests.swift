@@ -11,7 +11,7 @@ import SwiftMath
 import Quick
 import Nimble
 
-class VectorR3Spec: QuickSpec {
+class Vector3Spec: QuickSpec {
     
     override func spec() {
         let v1 = Vector3(x: 1, y: 2, z: 3)
