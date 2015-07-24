@@ -13,9 +13,20 @@ public struct Vector2<Real: RealType>: VectorType {
 
     public let x, y: Real
     
+    public init(_ coordinates: [Real]) {
+        if coordinates.count != 2 {
+            fatalError("Vector2 must be initialized with an array of 2 values")
+        }
+        self.init(x: coordinates[0], y: coordinates[1])
+    }
+    
     public init(x: Real, y: Real) {
         self.x = x
         self.y = y
+    }
+    
+    public var coordinates: [Real] {
+        return [x, y]
     }
     
     public var components: (x: Real, y: Real) {
@@ -38,7 +49,7 @@ public struct Vector2<Real: RealType>: VectorType {
 
 // MARK: Hashable
 
-extension Vector2 : Hashable {
+extension Vector2 : Equatable, Hashable {
     
     public var hashValue: Int {
         if self.x is Double {

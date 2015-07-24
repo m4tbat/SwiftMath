@@ -13,10 +13,21 @@ public struct Vector3<Real: RealType>: VectorType {
     
     public let x, y, z: Real
     
+    public init(_ coordinates: [Real]) {
+        if coordinates.count != 3 {
+            fatalError("Vector3 must be initialized with an array of 3 values")
+        }
+        self.init(x: coordinates[0], y: coordinates[1], z: coordinates[2])
+    }
+    
     public init(x: Real, y: Real, z: Real) {
         self.x = x
         self.y = y
         self.z = z
+    }
+    
+    public var coordinates: [Real] {
+        return [x, y, z]
     }
     
     public var components: (x: Real, y: Real, z: Real) {
@@ -52,7 +63,7 @@ public struct Vector3<Real: RealType>: VectorType {
 
 // MARK: Hashable
 
-extension Vector3 : Hashable {
+extension Vector3 : Equatable, Hashable {
  
     public var hashValue: Int {        
         if self.x is Double {

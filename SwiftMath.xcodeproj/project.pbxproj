@@ -46,6 +46,12 @@
 		95ABF76D1AF97F260046B97A /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95ABF76B1AF97F260046B97A /* Quick.framework */; };
 		95ABF7731AF980610046B97A /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABF7721AF980610046B97A /* ComplexTests.swift */; };
 		95C1A36F1B1FAF7F00FB5967 /* SwiftMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C1A3641B1FAF7F00FB5967 /* SwiftMath.framework */; };
+		95CC0F961B62FC3200704A05 /* SquareMatrixType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC0F951B62FC3200704A05 /* SquareMatrixType.swift */; };
+		95CC0F971B62FC3200704A05 /* SquareMatrixType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC0F951B62FC3200704A05 /* SquareMatrixType.swift */; };
+		95CC0F991B63028900704A05 /* MatrixType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC0F981B63028900704A05 /* MatrixType.swift */; };
+		95CC0F9A1B63028900704A05 /* MatrixType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC0F981B63028900704A05 /* MatrixType.swift */; };
+		95DF1F831B6066CE00C649BD /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DF1F821B6066CE00C649BD /* Vector.swift */; };
+		95DF1F841B6066CE00C649BD /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DF1F821B6066CE00C649BD /* Vector.swift */; };
 		95FE6B841AFACD58003877CF /* PolynomialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FE6B831AFACD58003877CF /* PolynomialTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +124,9 @@
 		95ABF7721AF980610046B97A /* ComplexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexTests.swift; sourceTree = "<group>"; };
 		95C1A3641B1FAF7F00FB5967 /* SwiftMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C1A36E1B1FAF7F00FB5967 /* SwiftMath-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftMath-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95CC0F951B62FC3200704A05 /* SquareMatrixType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareMatrixType.swift; sourceTree = "<group>"; };
+		95CC0F981B63028900704A05 /* MatrixType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixType.swift; sourceTree = "<group>"; };
+		95DF1F821B6066CE00C649BD /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		95FE6B831AFACD58003877CF /* PolynomialTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolynomialTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +212,9 @@
 				9591F05D1B58041000C52F80 /* VectorType.swift */,
 				9591F05A1B5802EF00C52F80 /* Vector2.swift */,
 				952898891AF3CD07007BD3BF /* Vector3.swift */,
+				95DF1F821B6066CE00C649BD /* Vector.swift */,
+				95CC0F981B63028900704A05 /* MatrixType.swift */,
+				95CC0F951B62FC3200704A05 /* SquareMatrixType.swift */,
 				9528986C1AF3C83B007BD3BF /* Supporting Files */,
 			);
 			path = SwiftMath;
@@ -462,6 +474,9 @@
 			files = (
 				9528988C1AF3CD07007BD3BF /* Quaternion.swift in Sources */,
 				9591F05B1B5802EF00C52F80 /* Vector2.swift in Sources */,
+				95CC0F991B63028900704A05 /* MatrixType.swift in Sources */,
+				95DF1F831B6066CE00C649BD /* Vector.swift in Sources */,
+				95CC0F961B62FC3200704A05 /* SquareMatrixType.swift in Sources */,
 				9528988A1AF3CD07007BD3BF /* Complex.swift in Sources */,
 				9528988E1AF3CD07007BD3BF /* Vector3.swift in Sources */,
 				9591F05E1B58041000C52F80 /* VectorType.swift in Sources */,
@@ -489,6 +504,9 @@
 			files = (
 				959439C61B1FB43300D32EFC /* Quaternion.swift in Sources */,
 				9591F05C1B5802EF00C52F80 /* Vector2.swift in Sources */,
+				95CC0F9A1B63028900704A05 /* MatrixType.swift in Sources */,
+				95DF1F841B6066CE00C649BD /* Vector.swift in Sources */,
+				95CC0F971B62FC3200704A05 /* SquareMatrixType.swift in Sources */,
 				959439C51B1FB43300D32EFC /* Complex.swift in Sources */,
 				959439C81B1FB43300D32EFC /* Vector3.swift in Sources */,
 				9591F05F1B58041000C52F80 /* VectorType.swift in Sources */,
