@@ -39,7 +39,7 @@ let v3 = v1 + v2 // Vector3(x: 6, y: 8, z: 10)
 v3.length // equals v3.norm
 
 // zero vector
-Vector.zero() // Vector3(x: 0, y: 0, z: 0)
+Vector3.zero() // Vector3(x: 0, y: 0, z: 0)
 
 // unit-length vector
 v3.unit() // divides v3 by its length
