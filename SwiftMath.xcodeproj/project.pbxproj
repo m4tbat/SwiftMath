@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,12 @@
 		956609D81B1B68D500392B90 /* QuaternionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D71B1B68D500392B90 /* QuaternionTests.swift */; };
 		956609DA1B1B68ED00392B90 /* Vector3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D91B1B68ED00392B90 /* Vector3Tests.swift */; };
 		956609DD1B1CB61600392B90 /* Vector3Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609DC1B1CB61600392B90 /* Vector3Matcher.swift */; };
+		958D33151B639BA1002EA1C6 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958D33141B639BA1002EA1C6 /* Expression.swift */; };
+		958D33161B639BA1002EA1C6 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958D33141B639BA1002EA1C6 /* Expression.swift */; };
+		958D33181B63F00B002EA1C6 /* Benchmarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958D33171B63F00B002EA1C6 /* Benchmarker.swift */; };
+		958D33191B63F00B002EA1C6 /* Benchmarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958D33171B63F00B002EA1C6 /* Benchmarker.swift */; };
+		958D331B1B643CF2002EA1C6 /* Memoize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958D331A1B643CF2002EA1C6 /* Memoize.swift */; };
+		958D331C1B643CF2002EA1C6 /* Memoize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958D331A1B643CF2002EA1C6 /* Memoize.swift */; };
 		9591F05B1B5802EF00C52F80 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9591F05A1B5802EF00C52F80 /* Vector2.swift */; };
 		9591F05C1B5802EF00C52F80 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9591F05A1B5802EF00C52F80 /* Vector2.swift */; };
 		9591F05E1B58041000C52F80 /* VectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9591F05D1B58041000C52F80 /* VectorType.swift */; };
@@ -115,6 +121,9 @@
 		956609D91B1B68ED00392B90 /* Vector3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3Tests.swift; sourceTree = "<group>"; };
 		956609DB1B1CB09F00392B90 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		956609DC1B1CB61600392B90 /* Vector3Matcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3Matcher.swift; sourceTree = "<group>"; };
+		958D33141B639BA1002EA1C6 /* Expression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expression.swift; sourceTree = "<group>"; };
+		958D33171B63F00B002EA1C6 /* Benchmarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Benchmarker.swift; sourceTree = "<group>"; };
+		958D331A1B643CF2002EA1C6 /* Memoize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memoize.swift; sourceTree = "<group>"; };
 		9591F05A1B5802EF00C52F80 /* Vector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
 		9591F05D1B58041000C52F80 /* VectorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorType.swift; sourceTree = "<group>"; };
 		959439B71B1FB1C900D32EFC /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
@@ -205,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				9528986E1AF3C83B007BD3BF /* SwiftMath.h */,
-				952898861AF3CD07007BD3BF /* Polynomial.swift */,
 				952898851AF3CD07007BD3BF /* Complex.swift */,
 				952898871AF3CD07007BD3BF /* Quaternion.swift */,
 				952898881AF3CD07007BD3BF /* RealType.swift */,
@@ -215,6 +223,10 @@
 				95DF1F821B6066CE00C649BD /* Vector.swift */,
 				95CC0F981B63028900704A05 /* MatrixType.swift */,
 				95CC0F951B62FC3200704A05 /* SquareMatrixType.swift */,
+				952898861AF3CD07007BD3BF /* Polynomial.swift */,
+				958D33141B639BA1002EA1C6 /* Expression.swift */,
+				958D331A1B643CF2002EA1C6 /* Memoize.swift */,
+				958D33171B63F00B002EA1C6 /* Benchmarker.swift */,
 				9528986C1AF3C83B007BD3BF /* Supporting Files */,
 			);
 			path = SwiftMath;
@@ -417,7 +429,7 @@
 				};
 			};
 			buildConfigurationList = 952898631AF3C83B007BD3BF /* Build configuration list for PBXProject "SwiftMath" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -473,14 +485,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9528988C1AF3CD07007BD3BF /* Quaternion.swift in Sources */,
+				958D331B1B643CF2002EA1C6 /* Memoize.swift in Sources */,
 				9591F05B1B5802EF00C52F80 /* Vector2.swift in Sources */,
 				95CC0F991B63028900704A05 /* MatrixType.swift in Sources */,
 				95DF1F831B6066CE00C649BD /* Vector.swift in Sources */,
 				95CC0F961B62FC3200704A05 /* SquareMatrixType.swift in Sources */,
+				958D33151B639BA1002EA1C6 /* Expression.swift in Sources */,
 				9528988A1AF3CD07007BD3BF /* Complex.swift in Sources */,
 				9528988E1AF3CD07007BD3BF /* Vector3.swift in Sources */,
 				9591F05E1B58041000C52F80 /* VectorType.swift in Sources */,
 				9528988B1AF3CD07007BD3BF /* Polynomial.swift in Sources */,
+				958D33181B63F00B002EA1C6 /* Benchmarker.swift in Sources */,
 				9528988D1AF3CD07007BD3BF /* RealType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,14 +518,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				959439C61B1FB43300D32EFC /* Quaternion.swift in Sources */,
+				958D331C1B643CF2002EA1C6 /* Memoize.swift in Sources */,
 				9591F05C1B5802EF00C52F80 /* Vector2.swift in Sources */,
 				95CC0F9A1B63028900704A05 /* MatrixType.swift in Sources */,
 				95DF1F841B6066CE00C649BD /* Vector.swift in Sources */,
 				95CC0F971B62FC3200704A05 /* SquareMatrixType.swift in Sources */,
+				958D33161B639BA1002EA1C6 /* Expression.swift in Sources */,
 				959439C51B1FB43300D32EFC /* Complex.swift in Sources */,
 				959439C81B1FB43300D32EFC /* Vector3.swift in Sources */,
 				9591F05F1B58041000C52F80 /* VectorType.swift in Sources */,
 				959439C41B1FB43300D32EFC /* Polynomial.swift in Sources */,
+				958D33191B63F00B002EA1C6 /* Benchmarker.swift in Sources */,
 				959439C71B1FB43300D32EFC /* RealType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

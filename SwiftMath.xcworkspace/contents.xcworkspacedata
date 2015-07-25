@@ -8,6 +8,6 @@
       location = "group:../Set/Set.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/matteo/Projects/madbat/Frameworks/SwiftMath/Examples.playground">
+      location = "group:/Users/matteo/Projects/madbat/Frameworks/SwiftMath/Playground.playground">
    </FileRef>
 </Workspace>
