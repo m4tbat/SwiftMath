@@ -139,5 +139,5 @@ public func * <Vector: VectorType>(v1: Vector, v2: Vector) -> Vector.Real {
 // MARK: Private functions
 
 private func zipAndCombine<Vector: VectorType>(v1: Vector, _ v2: Vector, _ op: (Vector.Real, Vector.Real) -> Vector.Real) -> Vector {
-    return Vector(zip(v1.coordinates, v2.coordinates).map { (c1, c2) in op(c1, c2) })
+    return Vector(zip(v1.coordinates, v2.coordinates).map(op))
 }

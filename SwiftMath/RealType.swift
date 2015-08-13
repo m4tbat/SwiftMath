@@ -8,10 +8,13 @@
 
 import Foundation
 
-public protocol RealType : FloatingPointType, Hashable, FloatLiteralConvertible {
+public protocol RealType : FloatingPointType, Hashable, FloatLiteralConvertible, SignedNumberType {
+    
     init(_ value: Double)
     init(_ value: Float)
+    
     // Built-in operators
+    
     prefix func + (_: Self) -> Self
     prefix func - (_: Self) -> Self
     func + (_: Self, _: Self) -> Self
@@ -22,7 +25,9 @@ public protocol RealType : FloatingPointType, Hashable, FloatLiteralConvertible 
     func -= (inout _: Self, _: Self)
     func *= (inout _: Self, _: Self)
     func /= (inout _: Self, _: Self)
-    // methodized functions for protocol's sake
+    
+    // Methodized functions for protocol's sake
+    
     var abs: Self { get }
     static var epsilon: Self { get }
     func cos() -> Self
@@ -33,28 +38,43 @@ public protocol RealType : FloatingPointType, Hashable, FloatLiteralConvertible 
     func hypot(_: Self) -> Self
     func atan2(_: Self) -> Self
     func pow(_: Self) -> Self
+    
+    // Constants
+    
+    static var PI: Self { get }
+    static var π: Self { get }
+    static var E: Self { get }
+    static var e: Self { get }
+    static var LN2: Self { get }
+    static var LOG2E: Self { get }
+    static var LN10: Self { get }
+    static var LOG10E: Self { get }
+    static var SQRT2: Self { get }
+    static var SQRT1_2: Self { get }
 }
 
-struct RealConstants {
-    static let PI = 3.14159265358979323846264338327950288419716939937510
-    static let π = PI
-    static let E =  2.718281828459045235360287471352662497757247093699
-    static let e = E
-    static let LN2 =
-    0.6931471805599453094172321214581765680755001343602552
-    static let LOG2E = 1 / LN2
-    static let LN10 =
-    2.3025850929940456840179914546843642076011014886287729
-    static let LOG10E = 1/LN10
-    static let SQRT2 =
-    1.4142135623730950488016887242096980785696718753769480
-    static let SQRT1_2 = 1/SQRT2
-    static let epsilon = 0x1p-52
+// MARK: - Constants
+
+extension RealType {
+    public var abs: Self { return Swift.abs(self) }
+    
+    public static var PI: Self { return 3.14159265358979323846264338327950288419716939937510 }
+    public static var π: Self { return PI }
+    public static var E: Self { return 2.718281828459045235360287471352662497757247093699 }
+    public static var e: Self { return E }
+    public static var LN2: Self { return 0.6931471805599453094172321214581765680755001343602552 }
+    public static var LOG2E: Self { return 1.0 / LN2 }
+    public static var LN10: Self { return 2.3025850929940456840179914546843642076011014886287729 }
+    public static var LOG10E: Self { return 1.0 / LN10 }
+    public static var SQRT2: Self { return 1.4142135623730950488016887242096980785696718753769480 }
+    public static var SQRT1_2: Self { return 1.0 / SQRT2 }
 }
+
+// MARK: - Double extension to conform to RealType
 
 // Double is default since floating-point literals are Double by default
-extension Double : RealType {
-    public var abs: Double { return Swift.abs(self) }
+extension Double: RealType {
+    
     public func cos() -> Double { return Foundation.cos(self) }
     public func exp() -> Double { return Foundation.exp(self) }
     public func log() -> Double { return Foundation.log(self) }
@@ -63,23 +83,14 @@ extension Double : RealType {
     public func atan2(y: Double) -> Double { return Foundation.atan2(self, y) }
     public func hypot(y: Double) -> Double { return Foundation.hypot(self, y) }
     public func pow(y: Double) -> Double { return Foundation.pow(self, y) }
-    
-    public static let PI = RealConstants.PI
-    public static let π = PI
-    public static let E = RealConstants.E
-    public static let e = E
-    public static let LN2 = RealConstants.LN2
-    public static let LOG2E = RealConstants.LOG2E
-    public static let LN10 = RealConstants.LN10
-    public static let LOG10E = 1/LN10
-    public static let SQRT2 = RealConstants.SQRT2
-    public static let SQRT1_2 = RealConstants.SQRT1_2
+
     public static let epsilon = 0x1p-52
 }
 
+// MARK: - Float extension to conform to RealType
+
 // But when explicitly typed you can use Float
-extension Float : RealType {
-    public var abs: Float { return Swift.abs(self) }
+extension Float: RealType {
     public func cos() -> Float { return Foundation.cos(self) }
     public func exp() -> Float { return Foundation.exp(self) }
     public func log() -> Float { return Foundation.log(self) }
@@ -88,17 +99,7 @@ extension Float : RealType {
     public func hypot(y: Float) -> Float { return Foundation.hypot(self, y) }
     public func atan2(y: Float) -> Float { return Foundation.atan2(self, y) }
     public func pow(y: Float) -> Float { return Foundation.pow(self, y) }
-    
-    public static let PI = RealConstants.PI
-    public static let π = PI
-    public static let E = RealConstants.E
-    public static let e = E
-    public static let LN2 = RealConstants.LN2
-    public static let LOG2E = RealConstants.LOG2E
-    public static let LN10 = RealConstants.LN10
-    public static let LOG10E = 1/LN10
-    public static let SQRT2 = RealConstants.SQRT2
-    public static let SQRT1_2 = RealConstants.SQRT1_2
+
     public static let epsilon: Float = 0x1p-23
 }
 

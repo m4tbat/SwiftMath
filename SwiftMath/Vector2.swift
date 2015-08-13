@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Vector in the two-dimensional Euclidean space – R×R
+/// Vector in the two-dimensional Euclidean space — R×R
 public struct Vector2<Real: RealType>: VectorType {
 
     public let x, y: Real

@@ -17,6 +17,10 @@
 		9528988E1AF3CD07007BD3BF /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898891AF3CD07007BD3BF /* Vector3.swift */; };
 		9534DF2A1B5F0C520057DC11 /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9534DF291B5F0C520057DC11 /* Set.framework */; };
 		9534DF2C1B5F0C6F0057DC11 /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9534DF2B1B5F0C6F0057DC11 /* Set.framework */; };
+		955121EB1B7CD41300267CAF /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955121EA1B7CD41300267CAF /* Matrix.swift */; };
+		955121EC1B7CD41300267CAF /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955121EA1B7CD41300267CAF /* Matrix.swift */; };
+		955121EE1B7CD43300267CAF /* SquareMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955121ED1B7CD43300267CAF /* SquareMatrix.swift */; };
+		955121EF1B7CD43300267CAF /* SquareMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955121ED1B7CD43300267CAF /* SquareMatrix.swift */; };
 		956609D81B1B68D500392B90 /* QuaternionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D71B1B68D500392B90 /* QuaternionTests.swift */; };
 		956609DA1B1B68ED00392B90 /* Vector3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D91B1B68ED00392B90 /* Vector3Tests.swift */; };
 		956609DD1B1CB61600392B90 /* Vector3Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609DC1B1CB61600392B90 /* Vector3Matcher.swift */; };
@@ -117,6 +121,8 @@
 		952898891AF3CD07007BD3BF /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		9534DF291B5F0C520057DC11 /* Set.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Set.framework; path = "../Set/build/Debug-iphoneos/Set.framework"; sourceTree = "<group>"; };
 		9534DF2B1B5F0C6F0057DC11 /* Set.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Set.framework; path = ../Set/build/Debug/Set.framework; sourceTree = "<group>"; };
+		955121EA1B7CD41300267CAF /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		955121ED1B7CD43300267CAF /* SquareMatrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareMatrix.swift; sourceTree = "<group>"; };
 		956609D71B1B68D500392B90 /* QuaternionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuaternionTests.swift; sourceTree = "<group>"; };
 		956609D91B1B68ED00392B90 /* Vector3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3Tests.swift; sourceTree = "<group>"; };
 		956609DB1B1CB09F00392B90 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -218,11 +224,13 @@
 				952898871AF3CD07007BD3BF /* Quaternion.swift */,
 				952898881AF3CD07007BD3BF /* RealType.swift */,
 				9591F05D1B58041000C52F80 /* VectorType.swift */,
+				95DF1F821B6066CE00C649BD /* Vector.swift */,
 				9591F05A1B5802EF00C52F80 /* Vector2.swift */,
 				952898891AF3CD07007BD3BF /* Vector3.swift */,
-				95DF1F821B6066CE00C649BD /* Vector.swift */,
 				95CC0F981B63028900704A05 /* MatrixType.swift */,
 				95CC0F951B62FC3200704A05 /* SquareMatrixType.swift */,
+				955121EA1B7CD41300267CAF /* Matrix.swift */,
+				955121ED1B7CD43300267CAF /* SquareMatrix.swift */,
 				952898861AF3CD07007BD3BF /* Polynomial.swift */,
 				958D33141B639BA1002EA1C6 /* Expression.swift */,
 				958D331A1B643CF2002EA1C6 /* Memoize.swift */,
@@ -484,10 +492,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955121EB1B7CD41300267CAF /* Matrix.swift in Sources */,
 				9528988C1AF3CD07007BD3BF /* Quaternion.swift in Sources */,
 				958D331B1B643CF2002EA1C6 /* Memoize.swift in Sources */,
 				9591F05B1B5802EF00C52F80 /* Vector2.swift in Sources */,
 				95CC0F991B63028900704A05 /* MatrixType.swift in Sources */,
+				955121EE1B7CD43300267CAF /* SquareMatrix.swift in Sources */,
 				95DF1F831B6066CE00C649BD /* Vector.swift in Sources */,
 				95CC0F961B62FC3200704A05 /* SquareMatrixType.swift in Sources */,
 				958D33151B639BA1002EA1C6 /* Expression.swift in Sources */,
@@ -517,10 +527,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955121EC1B7CD41300267CAF /* Matrix.swift in Sources */,
 				959439C61B1FB43300D32EFC /* Quaternion.swift in Sources */,
 				958D331C1B643CF2002EA1C6 /* Memoize.swift in Sources */,
 				9591F05C1B5802EF00C52F80 /* Vector2.swift in Sources */,
 				95CC0F9A1B63028900704A05 /* MatrixType.swift in Sources */,
+				955121EF1B7CD43300267CAF /* SquareMatrix.swift in Sources */,
 				95DF1F841B6066CE00C649BD /* Vector.swift in Sources */,
 				95CC0F971B62FC3200704A05 /* SquareMatrixType.swift in Sources */,
 				958D33161B639BA1002EA1C6 /* Expression.swift in Sources */,

@@ -93,21 +93,31 @@ public func /(lhs: Double, rhs: Expression) -> Expression {
 
 // MARK: Algebraic functions
 
-infix operator ** { associativity left precedence 160 }
-
-public func **(lhs: Expression, rhs: Double) -> Expression {
+public func pow(lhs: Expression, _ rhs: Double) -> Expression {
     return lhs.composeWith(value: rhs, function: pow, direction: .ExprThenValue)
 }
 
-public func **(lhs: Double, rhs: Expression) -> Expression {
+public func pow(lhs: Double, _ rhs: Expression) -> Expression {
     return rhs.composeWith(value: lhs, function: pow, direction: .ValueThenExpr)
+}
+
+infix operator ** { associativity left precedence 160 }
+
+public func **(lhs: Expression, rhs: Double) -> Expression {
+    return pow(lhs, rhs)
+}
+
+public func **(lhs: Double, rhs: Expression) -> Expression {
+    return pow(lhs, rhs)
 }
 
 // MARK: - Unary functions
 
 // MARK: Factorial function
 
-public func factorial(x: Int) -> Double {
+public let factorial = memoize(_factorial)
+
+private func _factorial(x: Int) -> Double {
     precondition(x >= 0, "Factorial isn't defined for negative numbers")
     var result = 1.0
     for var i = Double(x); i > 1; i-- {
