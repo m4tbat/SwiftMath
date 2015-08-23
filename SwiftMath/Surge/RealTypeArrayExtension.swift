@@ -31,7 +31,7 @@ extension Array where Element: RealType {
             let result = ifFloat(unsafeBitCast(self, [Float].self))
             return (unsafeBitCast(result.0, [Element].self), unsafeBitCast(result.1, [Element].self))
         } else if Element.self == Double.self {
-            let result = ifFloat(unsafeBitCast(self, [Double].self))
+            let result = ifDouble(unsafeBitCast(self, [Double].self))
             return (unsafeBitCast(result.0, [Element].self), unsafeBitCast(result.1, [Element].self))
         }
         fatalError("Accelerate-backed array methods work only with Float or Double elements")
