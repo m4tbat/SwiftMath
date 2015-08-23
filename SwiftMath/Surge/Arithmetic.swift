@@ -147,11 +147,7 @@ func sqrt(x: [Double]) -> [Double] {
 // MARK: Add
 
 public func add<Real: RealType>(x: [Real], _ y: [Real]) -> [Real] {
-    return analysis(x, y, ifFloat: { x, y in
-        add(x, y)
-    }, ifDouble: { x, y in
-        add(x, y)
-    })
+    return analysis(x, y, ifFloat: add, ifDouble: add)
 }
 
 func add(x: [Float], _ y: [Float]) -> [Float] {
@@ -170,12 +166,8 @@ func add(x: [Double], _ y: [Double]) -> [Double] {
 
 // MARK: Multiply
 
-public func mul<Real: RealType>(x: [Real], _ y: [Real]) -> [Real] {
-    return analysis(x, y, ifFloat: { x, y in
-        mul(x, y)
-    }, ifDouble: { x, y in
-        mul(x, y)
-    })
+public func multiply<Real: RealType>(x: [Real], _ y: [Real]) -> [Real] {
+    return analysis(x, y, ifFloat: mul, ifDouble: mul)
 }
 
 func mul(x: [Float], _ y: [Float]) -> [Float] {
@@ -194,12 +186,8 @@ func mul(x: [Double], _ y: [Double]) -> [Double] {
 
 // MARK: Divide
 
-public func div<Real: RealType>(x: [Real], _ y: [Real]) -> [Real] {
-    return analysis(x, y, ifFloat: { x, y in
-        div(x, y)
-    }, ifDouble: { x, y in
-        div(x, y)
-    })
+public func divide<Real: RealType>(x: [Real], _ y: [Real]) -> [Real] {
+    return analysis(x, y, ifFloat: div, ifDouble: div)
 }
 
 func div(x: [Float], _ y: [Float]) -> [Float] {
@@ -218,12 +206,8 @@ func div(x: [Double], _ y: [Double]) -> [Double] {
 
 // MARK: Modulo
 
-public func mod<Real: RealType>(x: [Real], _ y: [Real]) -> [Real] {
-    return analysis(x, y, ifFloat: { x, y in
-        mod(x, y)
-    }, ifDouble: { x, y in
-        mod(x, y)
-    })
+public func modulo<Real: RealType>(x: [Real], _ y: [Real]) -> [Real] {
+    return analysis(x, y, ifFloat: mod, ifDouble: mod)
 }
 
 func mod(x: [Float], _ y: [Float]) -> [Float] {
@@ -243,11 +227,7 @@ func mod(x: [Double], _ y: [Double]) -> [Double] {
 // MARK: Remainder
 
 public func remainder<Real: RealType>(x: [Real], _ y: [Real]) -> [Real] {
-    return analysis(x, y, ifFloat: { x, y in
-        remainder(x, y)
-    }, ifDouble: { x, y in
-        remainder(x, y)
-    })
+    return analysis(x, y, ifFloat: remainder, ifDouble: remainder)
 }
 
 func remainder(x: [Float], _ y: [Float]) -> [Float] {
@@ -266,14 +246,9 @@ func remainder(x: [Double], _ y: [Double]) -> [Double] {
 
 // MARK: Dot Product
 
-public func dot<Real: RealType>(x: [Real], _ y: [Real]) -> Real {
+public func dotProduct<Real: RealType>(x: [Real], _ y: [Real]) -> Real {
     precondition(x.count == y.count, "Vectors must have equal count")
-    
-    return analysis(x, y, ifFloat: { x, y in
-        dot(x, y)
-    }, ifDouble: { x, y in
-        dot(x, y)
-    })
+    return analysis(x, y, ifFloat: dot, ifDouble: dot)
 }
 
 func dot(x: [Float], _ y: [Float]) -> Float {
@@ -306,30 +281,30 @@ public func + <Real: RealType>(lhs: [Real], rhs: Real) -> [Real] {
 }
 
 public func / <Real: RealType>(lhs: [Real], rhs: [Real]) -> [Real] {
-    return div(lhs, rhs)
+    return divide(lhs, rhs)
 }
 
 public func / <Real: RealType>(lhs: [Real], rhs: Real) -> [Real] {
-    return div(lhs, [Real](count: lhs.count, repeatedValue: rhs))
+    return divide(lhs, [Real](count: lhs.count, repeatedValue: rhs))
 }
 
 public func * <Real: RealType>(lhs: [Real], rhs: [Real]) -> [Real] {
-    return mul(lhs, rhs)
+    return multiply(lhs, rhs)
 }
 
 public func * <Real: RealType>(lhs: [Real], rhs: Real) -> [Real] {
-    return mul(lhs, [Real](count: lhs.count, repeatedValue: rhs))
+    return multiply(lhs, [Real](count: lhs.count, repeatedValue: rhs))
 }
 
 public func % <Real: RealType>(lhs: [Real], rhs: [Real]) -> [Real] {
-    return mod(lhs, rhs)
+    return modulo(lhs, rhs)
 }
 
 public func % <Real: RealType>(lhs: [Real], rhs: Real) -> [Real] {
-    return mod(lhs, [Real](count: lhs.count, repeatedValue: rhs))
+    return modulo(lhs, [Real](count: lhs.count, repeatedValue: rhs))
 }
 
 infix operator • { associativity left precedence 150 }
 public func • <Real: RealType>(lhs: [Real], rhs: [Real]) -> Real {
-    return dot(lhs, rhs)
+    return dotProduct(lhs, rhs)
 }

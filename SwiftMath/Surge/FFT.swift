@@ -24,7 +24,7 @@ import Accelerate
 
 // MARK: Fast Fourier Transform
 
-public func fft(input: [Float]) -> [Float] {
+func fft(input: [Float]) -> [Float] {
     var real = [Float](input)
     var imaginary = [Float](count: input.count, repeatedValue: 0.0)
     var splitComplex = DSPSplitComplex(realp: &real, imagp: &imaginary)
@@ -45,7 +45,7 @@ public func fft(input: [Float]) -> [Float] {
     return normalizedMagnitudes
 }
 
-public func fft(input: [Double]) -> [Double] {
+func fft(input: [Double]) -> [Double] {
     var real = [Double](input)
     var imaginary = [Double](count: input.count, repeatedValue: 0.0)
     var splitComplex = DSPDoubleSplitComplex(realp: &real, imagp: &imaginary)

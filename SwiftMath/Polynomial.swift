@@ -199,7 +199,8 @@ public struct Polynomial<Real: RealType>: Equatable {
         let p = b + minus3a2/8.0
         let ab4 = 4.0*a*b
         let q = (a2*a - ab4)/8.0 + c
-        let r = (minus3a2*a2 - ac64 + a2b16)/256.0 + d
+        let r1 = minus3a2*a2 - ac64 + a2b16
+        let r = r1/256.0 + d
         
         // Depressed quartic: u^4 + p*u^2 + q*u + r = 0
         

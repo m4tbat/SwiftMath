@@ -51,7 +51,11 @@ func vec<T: RealType>(elem: T) -> [T] {
     return [1.0, 5.0, 2.0]
 }
 
-let m = [1.0, 2.0]
+let x = [1.1, 2.0, 5.0]
+let y = [3.0, -4.0, 0.0]
+
+clip(x, 1.1, 2.0)
+x.thresholdValues(3)
 
 add(vec(1.0), vec(2.0))
 
