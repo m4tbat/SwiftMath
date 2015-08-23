@@ -22,13 +22,37 @@ v5b.squareLength
 
 let f = factorial(100)
 
-let x = Expression()
+//let x = Expression()
+//
+//let expression = sin(x)
+//
+//expression.evaluateFor(Double.PI/2)
+//
+//for i in (-100..<100) {
+//    expression.evaluateFor(Double(i)*0.1)
+//}
+//
 
-let expression = sin(x)
+//extension Array where Element: Float {
+//    func f() -> Element {
+//        return 3.0
+//    }
+//}
+//
+//extension Array where Element: Double {
+//    func f() -> Element {
+//        return 3.0
+//    }
+//}
 
-expression.evaluateFor(Double.PI/2)
+let po: Double = 0.0
 
-for i in (-100..<100) {
-    expression.evaluateFor(Double(i)*0.1)
+func vec<T: RealType>(elem: T) -> [T] {
+    return [1.0, 5.0, 2.0]
 }
+
+let m = [1.0, 2.0]
+
+add(vec(1.0), vec(2.0))
+
 

@@ -8,6 +8,6 @@
 
 import Foundation
 
-public struct Matrix: MatrixType {
-    
-}
+//public struct Matrix: MatrixType {
+//    
+//}

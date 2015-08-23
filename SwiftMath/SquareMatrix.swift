@@ -8,6 +8,6 @@
 
 import Foundation
 
-public struct SquareMatrix: SquareMatrixType {
-    
-}
+//public struct SquareMatrix: SquareMatrixType {
+//    
+//}

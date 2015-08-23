@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol RealType : FloatingPointType, Hashable, FloatLiteralConvertible, SignedNumberType {
+public protocol RealType: FloatingPointType, Hashable, FloatLiteralConvertible, SignedNumberType {
     
     init(_ value: Double)
     init(_ value: Float)
