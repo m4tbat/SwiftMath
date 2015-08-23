@@ -26,6 +26,17 @@ extension Array where Element: RealType {
         fatalError("Accelerate-backed array methods work only with Float or Double elements")
     }
     
+    private func analysis(@noescape ifFloat ifFloat: ([Float]) -> ([Float], [Float]), @noescape ifDouble: ([Double]) -> ([Double], [Double])) -> ([Element], [Element]) {
+        if Element.self == Float.self {
+            let result = ifFloat(unsafeBitCast(self, [Float].self))
+            return (unsafeBitCast(result.0, [Element].self), unsafeBitCast(result.1, [Element].self))
+        } else if Element.self == Double.self {
+            let result = ifFloat(unsafeBitCast(self, [Double].self))
+            return (unsafeBitCast(result.0, [Element].self), unsafeBitCast(result.1, [Element].self))
+        }
+        fatalError("Accelerate-backed array methods work only with Float or Double elements")
+    }
+    
     // MARK: Arithmetic
     
     public func sum() -> Element {
@@ -140,30 +151,68 @@ extension Array where Element: RealType {
         return analysis(ifFloat: fft, ifDouble: fft)
     }
     
+    // MARK: Trigonometric
+    
+    public func sine() -> [Element] {
+        return analysis(ifFloat: sin, ifDouble: sin)
+    }
+    
+    public func cosine() -> [Element] {
+        return analysis(ifFloat: cos, ifDouble: cos)
+    }
+    
+    public func sineCosine() -> (sin: [Element], cos: [Element]) {
+        return analysis(ifFloat: sincos, ifDouble: sincos)
+    }
+    
+    public func tangent() -> [Element] {
+        return analysis(ifFloat: tan, ifDouble: tan)
+    }
+    
+    public func ascsine() -> [Element] {
+        return analysis(ifFloat: asin, ifDouble: asin)
+    }
+    
+    public func arccosine() -> [Element] {
+        return analysis(ifFloat: acos, ifDouble: acos)
+    }
+    
+    public func arctangent() -> [Element] {
+        return analysis(ifFloat: atan, ifDouble: atan)
+    }
+    
+    public func radiansToDegrees() -> [Element] {
+        return analysis(ifFloat: rad2deg, ifDouble: rad2deg)
+    }
+    
+    public func degreesToRadians() -> [Element] {
+        return analysis(ifFloat: deg2rad, ifDouble: deg2rad)
+    }
+    
     // MARK: Hyperbolic
     
-    public func sinh() -> [Element] {
-        return analysis(ifFloat: SwiftMath.sinh, ifDouble: SwiftMath.sinh)
+    public func hyperbolicSine() -> [Element] {
+        return analysis(ifFloat: sinh, ifDouble: sinh)
     }
     
-    public func cosh() -> [Element] {
-        return analysis(ifFloat: SwiftMath.cosh, ifDouble: SwiftMath.cosh)
+    public func hyperbolicCosine() -> [Element] {
+        return analysis(ifFloat: cosh, ifDouble: cosh)
     }
     
-    public func tanh() -> [Element] {
-        return analysis(ifFloat: SwiftMath.tanh, ifDouble: SwiftMath.tanh)
+    public func hyperbolicTangent() -> [Element] {
+        return analysis(ifFloat: tanh, ifDouble: tanh)
     }
     
-    public func asinh() -> [Element] {
-        return analysis(ifFloat: SwiftMath.asinh, ifDouble: SwiftMath.asinh)
+    public func hyperbolicArcsine() -> [Element] {
+        return analysis(ifFloat: asinh, ifDouble: asinh)
     }
     
-    public func acosh() -> [Element] {
-        return analysis(ifFloat: SwiftMath.acosh, ifDouble: SwiftMath.acosh)
+    public func hyperbolicArccosine() -> [Element] {
+        return analysis(ifFloat: acosh, ifDouble: acosh)
     }
     
-    public func atanh() -> [Element] {
-        return analysis(ifFloat: SwiftMath.atanh, ifDouble: SwiftMath.atanh)
+    public func hyperbolicArctangent() -> [Element] {
+        return analysis(ifFloat: atanh, ifDouble: atanh)
     }
     
 }

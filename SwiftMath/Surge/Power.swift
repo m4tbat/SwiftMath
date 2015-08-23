@@ -24,14 +24,18 @@ import Accelerate
 
 // MARK: Power
 
-public func pow(x: [Float], y: [Float]) -> [Float] {
+public func power<Real: RealType>(x: [Real], y: [Real]) -> [Real] {
+    return analysis(x, y, ifFloat: pow, ifDouble: pow)
+}
+
+func pow(x: [Float], y: [Float]) -> [Float] {
     var results = [Float](count: x.count, repeatedValue: 0.0)
     vvpowf(&results, x, y, [Int32(x.count)])
 
     return results
 }
 
-public func pow(x: [Double], y: [Double]) -> [Double] {
+func pow(x: [Double], y: [Double]) -> [Double] {
     var results = [Double](count: x.count, repeatedValue: 0.0)
     vvpow(&results, x, y, [Int32(x.count)])
 
