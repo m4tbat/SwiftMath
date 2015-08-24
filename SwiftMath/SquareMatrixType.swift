@@ -6,13 +6,11 @@
 //  Copyright © 2015 Matteo Battaglio. All rights reserved.
 //
 
-import Foundation
-
 protocol SquareMatrixType: MatrixType {
     
-    typealias Real: RealType
+    static func identity(rowCount: Int) -> Self
     
-    var determinant: Real { get }
+    var determinant: Element { get }
     
     func transpose() -> Self
     
@@ -21,8 +19,6 @@ protocol SquareMatrixType: MatrixType {
     func adjugate() -> Self
     
     func inverse() -> Self?
-    
-    func identity(rowCount: Int, columnCount: Int) -> Self
     
     var isInvertible: Bool { get }
     

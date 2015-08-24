@@ -6,52 +6,34 @@
 //  Copyright © 2015 Matteo Battaglio. All rights reserved.
 //
 
-import Foundation
-
 public protocol MatrixType: ArrayLiteralConvertible {
     
-    typealias Vector: VectorType
+    typealias MatrixElement: RealType
     
-    init(_ rows: [Vector])
+    typealias Order = (rows: Int, columns: Int)
     
-    init(_ rows: Vector...)
+    init(_ rows: [[MatrixElement]])
     
-    var rows: [Vector] { get }
+    init(_ rows: [MatrixElement]...)
     
-    var columns: [Vector] { get }
+//    var rows: ArraySlice<Element> { get }
+//    
+//    var columns: ArraySlice<Element> { get }
     
-    var order: (rows: Int, columns: Int) { get }
+    var order: Order { get }
     
-    var rank: Int { get }
+//    var rank: Int { get }
     
 }
 
 extension MatrixType {
     
-    init(_ elements: Vector...) {
+    public init(_ rows: [MatrixElement]...) {
+        self.init(rows)
+    }
+    
+    public init(arrayLiteral elements: [MatrixElement]...) {
         self.init(elements)
-    }
-    
-    init(arrayLiteral elements: Vector...) {
-        self.init(elements)
-    }
-    
-    var columns: [Vector] {
-        var cols: [Vector] = []
-        cols.reserveCapacity(order.columns)
-        for i in (0..<order.columns) {
-            var col: [Vector.Real] = []
-            col.reserveCapacity(order.rows)
-            for row in rows {
-                col.append(row.coordinates[i])
-            }
-            cols.append(Vector(col))
-        }
-        return cols
-    }
-    
-    var size: (rows: Int, columns: Int) {
-        return (rows.count, rows[0].coordinates.count)
     }
     
 }

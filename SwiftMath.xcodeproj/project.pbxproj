@@ -45,8 +45,6 @@
 		9528988E1AF3CD07007BD3BF /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952898891AF3CD07007BD3BF /* Vector3.swift */; };
 		9534DF2A1B5F0C520057DC11 /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9534DF291B5F0C520057DC11 /* Set.framework */; };
 		9534DF2C1B5F0C6F0057DC11 /* Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9534DF2B1B5F0C6F0057DC11 /* Set.framework */; };
-		955121EB1B7CD41300267CAF /* MatrixMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955121EA1B7CD41300267CAF /* MatrixMine.swift */; };
-		955121EC1B7CD41300267CAF /* MatrixMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955121EA1B7CD41300267CAF /* MatrixMine.swift */; };
 		955121EE1B7CD43300267CAF /* SquareMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955121ED1B7CD43300267CAF /* SquareMatrix.swift */; };
 		955121EF1B7CD43300267CAF /* SquareMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955121ED1B7CD43300267CAF /* SquareMatrix.swift */; };
 		956609D81B1B68D500392B90 /* QuaternionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956609D71B1B68D500392B90 /* QuaternionTests.swift */; };
@@ -167,7 +165,6 @@
 		952898891AF3CD07007BD3BF /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		9534DF291B5F0C520057DC11 /* Set.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Set.framework; path = "../Set/build/Debug-iphoneos/Set.framework"; sourceTree = "<group>"; };
 		9534DF2B1B5F0C6F0057DC11 /* Set.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Set.framework; path = ../Set/build/Debug/Set.framework; sourceTree = "<group>"; };
-		955121EA1B7CD41300267CAF /* MatrixMine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixMine.swift; sourceTree = "<group>"; };
 		955121ED1B7CD43300267CAF /* SquareMatrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareMatrix.swift; sourceTree = "<group>"; };
 		956609D71B1B68D500392B90 /* QuaternionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuaternionTests.swift; sourceTree = "<group>"; };
 		956609D91B1B68ED00392B90 /* Vector3Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3Tests.swift; sourceTree = "<group>"; };
@@ -307,7 +304,6 @@
 				952898891AF3CD07007BD3BF /* Vector3.swift */,
 				95CC0F981B63028900704A05 /* MatrixType.swift */,
 				95CC0F951B62FC3200704A05 /* SquareMatrixType.swift */,
-				955121EA1B7CD41300267CAF /* MatrixMine.swift */,
 				955121ED1B7CD43300267CAF /* SquareMatrix.swift */,
 				952898861AF3CD07007BD3BF /* Polynomial.swift */,
 				958D33141B639BA1002EA1C6 /* Expression.swift */,
@@ -573,7 +569,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				95A22E371B89390400FD8F7E /* RealTypeAnalysis.swift in Sources */,
-				955121EB1B7CD41300267CAF /* MatrixMine.swift in Sources */,
 				950C81901B88D895008F43E2 /* Trigonometric.swift in Sources */,
 				950C81841B88D895008F43E2 /* Auxiliary.swift in Sources */,
 				9528988C1AF3CD07007BD3BF /* Quaternion.swift in Sources */,
@@ -624,7 +619,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				95A22E381B89390400FD8F7E /* RealTypeAnalysis.swift in Sources */,
-				955121EC1B7CD41300267CAF /* MatrixMine.swift in Sources */,
 				950C81911B88D895008F43E2 /* Trigonometric.swift in Sources */,
 				950C81851B88D895008F43E2 /* Auxiliary.swift in Sources */,
 				959439C61B1FB43300D32EFC /* Quaternion.swift in Sources */,

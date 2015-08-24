@@ -2,6 +2,7 @@
 
 import SwiftMath
 import Set
+import Accelerate
 
 let p = Polynomial(1, 4, 8)
 
@@ -54,9 +55,35 @@ func vec<T: RealType>(elem: T) -> [T] {
 let x = [1.1, 2.0, 5.0]
 let y = [3.0, -4.0, 0.0]
 
-clip(x, 1.1, 2.0)
-x.thresholdValues(3)
+x.threshold(3)
 
 add(vec(1.0), vec(2.0))
 
+func rango(x: Matrix<Float>) -> Int {
+    var results = x
+    
+    var nr = __CLPK_integer(x.order.rows)
+    var nc = __CLPK_integer(x.order.columns)
+    var lwork = __CLPK_integer(10*max(nr, nc))
+    var work = [__CLPK_real](count: Int(lwork), repeatedValue: 0.0)
+    var error: __CLPK_integer = 0
+    let lds = max(nr, nc)
+    var s = [__CLPK_real](count: Int(lds), repeatedValue: 0.0)
+    var u = [__CLPK_real](count: Int(nr * nr), repeatedValue: 0.0)
+    var vt = [__CLPK_real](count: Int(nc), repeatedValue: 0.0)
+    
+    var jobu: Int8 = 78 // 'N'
+    var jobvt: Int8 = 78 // 'N'
+    
+    sgesvd_(&jobu, &jobvt, &nr, &nc, &(results.grid), &nc, &s, &u, &nr, &vt, &nc, &work, &lwork, &error)
+    
+    print(s)
+    
+    let epsilon: Float = 1e-4
+    return lazy(s).filter { $0 > epsilon }.count
+}
+
+let m: Matrix<Float> = Matrix([1.0, 2.0, 3.0], [2.0, 2.0, 2.0], [3.0, 4.0, 5.0])
+
+rango(m)
 
