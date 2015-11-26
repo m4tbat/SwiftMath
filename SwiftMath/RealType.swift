@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol RealType: FloatingPointType, Hashable, FloatLiteralConvertible, SignedNumberType {
+public protocol RealType: FloatingPointType, Hashable, FloatLiteralConvertible, SignedNumberType, CustomStringConvertible {
     
     init(_ value: Double)
     init(_ value: Float)
@@ -117,4 +117,18 @@ public func =~ <T: RealType>(lhs: T, rhs: T) -> Bool {
 
 public func !~ <T: RealType>(lhs: T, rhs: T) -> Bool {
     return !(lhs =~ rhs)
+}
+
+// MARK: CustomStringConvertible
+
+extension RealType {
+    
+    var description: String {
+        if self is Double {
+            return (self as! Double).description
+        } else {
+            return (self as! Float).description
+        }
+    }
+    
 }

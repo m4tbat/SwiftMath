@@ -70,7 +70,7 @@ extension Matrix: CustomStringConvertible {
         var description = ""
 
         for i in 0..<order.rows {
-            let contents = "\t".join((0..<order.columns).map {"\(self[i, $0])"})
+            let contents = (0..<order.columns).map({"\(self[i, $0])"}).joinWithSeparator("\t")
 
             switch (i, order.rows) {
             case (0, 1):
@@ -135,7 +135,7 @@ public func rank(x: Matrix<Float>) -> Int {
     print(s)
     
     let epsilon: Float = 1e-4
-    return lazy(s).filter { $0 > epsilon }.count
+    return s.lazy.filter { $0 > epsilon }.count
 }
 
 public func add(x: Matrix<Float>, y: Matrix<Float>) -> Matrix<Float> {

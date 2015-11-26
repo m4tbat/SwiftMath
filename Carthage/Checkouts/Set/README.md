@@ -28,10 +28,10 @@ difference.contains(6) // false
 
 // Special Sets
 func isInt(number: Float) -> Bool {
-	return floor(number) == number
+	return Float(Int(number)) == number
 }
 
-let Q: PredicateSet<Float> = PredicateSet { $0 as Float } // Set of all real numbers.
+let Q: PredicateSet<Float> = PredicateSet { _ in true } // Set of all real numbers.
 let Z = Q & PredicateSet { isInt($0) } // Set of all integers.
 let N = Z & PredicateSet { $0 > 0 } // Set of all natural numbers.
 

@@ -1,7 +1,7 @@
 //  Copyright (c) 2015 Rob Rix. All rights reserved.
 
 /// A multiset of elements and their counts.
-public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, RangeReplaceableCollectionType, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
+public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, Hashable, CustomStringConvertible, CustomDebugStringConvertible, CollectionType {
 	// MARK: Constructors
 
 	/// Constructs a `Multiset` with the elements of `sequence`.
@@ -30,7 +30,7 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, RangeReplace
 
 	/// The number of entries in the receiver.
 	public var count: Int {
-		return lazy(values).map { $0.1 }.reduce(0, combine: +)
+		return values.values.reduce(0, combine: +)
 	}
 
 	/// The number of distinct entries in the receiver.
@@ -94,7 +94,7 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, RangeReplace
 	///
 	/// This is a new set with all elements from the receiver which are not contained in `set`.
 	public func complement(set: Multiset) -> Multiset {
-		return Multiset(values: values.map { ($0, $1 - set.count($0)) })
+		return Multiset(values: values.lazy.map { ($0, $1 - set.count($0)) })
 	}
 
 	/// Returns the symmetric difference of `self` and `set`.
@@ -132,7 +132,7 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, RangeReplace
 
 	/// Returns a new set including only those elements `x` where `includeElement(x)` is true.
 	public func filter(includeElement: Element -> Bool) -> Multiset {
-		return Multiset(lazy(self).filter(includeElement))
+		return Multiset(self.lazy.filter(includeElement))
 	}
 
 	/// Returns a new set with the result of applying `transform` to each element.
@@ -160,7 +160,9 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, RangeReplace
 
 	// MARK: SequenceType
 
-	public func generate() -> AnyGenerator<Element> {
+	public typealias Generator = AnyGenerator<Element>
+
+	public func generate() -> Generator {
 		var generator = values.generate()
 		let next = { generator.next() }
 		var current: (element: Element?, count: Int) = (nil, 0)
@@ -217,10 +219,6 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, RangeReplace
 	public mutating func append(element: Element) {
 		insert(element)
 	}
-	
-	public mutating func replaceRange<C: CollectionType where C.Generator.Element == Element>(subRange: Range<Multiset.Index>, with newElements: C) {
-		fatalError("Not implemented!")
-	}
 
 
 	// MARK: Hashable
@@ -259,7 +257,7 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, RangeReplace
 	/// Constructs a `Multiset` with a sequence of element/count pairs.
 	private init<S: SequenceType where S.Generator.Element == Dictionary<Element, Int>.Element>(values: S) {
 		self.values = [:]
-		for (element, count) in AnySequence<(Element, Int)>(values) {
+		for (element, count) in values {
 			if count > 0 { self.values[element] = count }
 		}
 	}
@@ -270,6 +268,14 @@ public struct Multiset<Element: Hashable>: ArrayLiteralConvertible, RangeReplace
 
 
 // MARK: - Operators
+
+/// Returns a new set with all elements from `set` and `other`.
+public func + <Element, S: SequenceType where S.Generator.Element == Element> (var set: Multiset<Element>, other: S) -> Multiset<Element> {
+	for element in other {
+		set.insert(element)
+	}
+	return set
+}
 
 /// Extends a `set` with the elements of a `sequence`.
 public func += <S: SequenceType> (inout set: Multiset<S.Generator.Element>, sequence: S) {
@@ -343,3 +349,5 @@ public func < <Element: Hashable> (left: MultisetIndex<Element>, right: Multiset
 	}
 	return false
 }
+
+

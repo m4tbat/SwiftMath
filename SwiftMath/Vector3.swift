@@ -14,7 +14,7 @@ public struct Vector3<Real: RealType>: VectorType {
     public let x, y, z: Real
     
     public init(_ coordinates: [Real]) {
-        if coordinates.count != 3 {
+        guard coordinates.count == 3 else {
             fatalError("Vector3 must be initialized with an array of 3 values")
         }
         self.init(x: coordinates[0], y: coordinates[1], z: coordinates[2])
@@ -35,7 +35,7 @@ public struct Vector3<Real: RealType>: VectorType {
     }
     
     public static func zero() -> Vector3 {
-        return Vector3(x: 0.0, y: 0.0, z: 0.0)
+        return Vector3(x: 0, y: 0, z: 0)
     }
     
     public func scale(value: Real) -> Vector3 {

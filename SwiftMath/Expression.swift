@@ -118,7 +118,7 @@ public func **(lhs: Double, rhs: Expression) -> Expression {
 public let factorial = memoize(_factorial)
 
 private func _factorial(x: Int) -> Double {
-    precondition(x >= 0, "Factorial isn't defined for negative numbers")
+    precondition(x >= 0, "Factorial is undefined for negative numbers")
     var result = 1.0
     for var i = Double(x); i > 1; i-- {
         result *= i

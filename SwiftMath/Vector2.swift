@@ -14,7 +14,7 @@ public struct Vector2<Real: RealType>: VectorType {
     public let x, y: Real
     
     public init(_ coordinates: [Real]) {
-        if coordinates.count != 2 {
+        guard coordinates.count == 2 else {
             fatalError("Vector2 must be initialized with an array of 2 values")
         }
         self.init(x: coordinates[0], y: coordinates[1])
@@ -34,7 +34,7 @@ public struct Vector2<Real: RealType>: VectorType {
     }
     
     public static func zero() -> Vector2 {
-        return Vector2(x: 0.0, y: 0.0)
+        return Vector2(x: 0, y: 0)
     }
     
     public func scale(value: Real) -> Vector2 {
@@ -77,4 +77,14 @@ public func - <Real: RealType>(v1: Vector2<Real>, v2: Vector2<Real>) -> Vector2<
 
 public prefix func - <Real: RealType>(vector: Vector2<Real>) -> Vector2<Real> {
     return Vector2(x: -vector.x, y: -vector.y)
+}
+
+// MARK: CustomStringConvertible
+
+extension Vector2: CustomStringConvertible {
+    
+    public var description: String {
+        return "(x: \(x), y: \(y))"
+    }
+    
 }

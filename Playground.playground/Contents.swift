@@ -80,7 +80,7 @@ func rango(x: Matrix<Float>) -> Int {
     print(s)
     
     let epsilon: Float = 1e-4
-    return lazy(s).filter { $0 > epsilon }.count
+    return s.lazy.filter { $0 > epsilon }.count
 }
 
 let m: Matrix<Float> = Matrix([1.0, 2.0, 3.0], [2.0, 2.0, 2.0], [3.0, 4.0, 5.0])

@@ -12,7 +12,7 @@ internal func debugDescribe<S: SequenceType>(sequence: S) -> String {
 
 /// Maps the elements of `sequence` with `transform` and formats them as a set.
 private func mapDescription<S: SequenceType>(sequence: S, transform: S.Generator.Element -> String) -> String {
-	return wrapDescription(", ".join(lazy(sequence).map(transform)))
+	return wrapDescription(sequence.lazy.map(transform).joinWithSeparator(", "))
 }
 
 /// Wraps a string appropriately for formatting as a set.
@@ -24,14 +24,10 @@ private func wrapDescription(description: String) -> String {
 
 // Returns the result of `print`ing x into a `String`
 private func toString<T>(x: T) -> String {
-	var string = String()
-	print(x, &string, appendNewline: false)
-	return string
+	return String(x)
 }
 
 // Returns the result of `debugPrint`ing x into a `String`
 private func toDebugString<T>(x: T) -> String {
-	var string = String()
-	debugPrint(x, &string, appendNewline: false)
-	return string
+	return String(reflecting: x)
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol VectorType: Equatable, ArrayLiteralConvertible {
+public protocol VectorType: Equatable, ArrayLiteralConvertible, CustomStringConvertible {
     
     typealias Real: RealType
     
@@ -136,6 +136,15 @@ public func * <Vector: VectorType>(v1: Vector, v2: Vector) -> Vector.Real {
     return v1.dotProduct(v2)
 }
 
+// MARK: CustomStringConvertible
+
+extension VectorType {
+    
+    public var description: String {
+        return "(\(coordinates.map({ $0.description }).joinWithSeparator(", ")))"
+    }
+    
+}
 // MARK: Private functions
 
 private func zipAndCombine<Vector: VectorType>(v1: Vector, _ v2: Vector, _ op: (Vector.Real, Vector.Real) -> Vector.Real) -> Vector {

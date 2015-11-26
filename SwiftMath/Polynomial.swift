@@ -123,7 +123,9 @@ public struct Polynomial<Real: RealType>: Equatable {
         let D0 = b2 - (3.0 * c)
         let bc9 = 9.0 * b * c
         let D1 = (2.0 * b3) - bc9 + (27.0 * d)
-        let minus27D = (D1 * D1) - (4.0 * D0 * D0 * D0)
+        let D12 = D1 * D1
+        let D03 = D0 * D0 * D0
+        let minus27D = D12 - (4.0 * D03)
         var squareRoot = sqrt(Complex(minus27D, 0.0))
         let oneThird: Real = 1.0/3.0
         let zero: Real = 0.0
@@ -152,9 +154,13 @@ public struct Polynomial<Real: RealType>: Equatable {
             let u2C = u2 * C
             let u3C = u3 * C
             
-            let x1 = -oneThird * (b + C + (D0 / C))
-            let x2 = -oneThird * (b + u2C + (D0 / u2C))
-            let x3 = -oneThird * (b + u3C + (D0 / u3C))
+            let x13 = b + C + (D0 / C)
+            let x23 = b + u2C + (D0 / u2C)
+            let x33 = b + u3C + (D0 / u3C)
+            
+            let x1 = -oneThird * x13
+            let x2 = -oneThird * x23
+            let x3 = -oneThird * x33
             
             return [x1, x2, x3]
         }
