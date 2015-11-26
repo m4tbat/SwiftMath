@@ -2,10 +2,9 @@
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-SwiftMath is a Swift framework providing some useful math constructs and functions, like complex numbers, 2D and 3D vectors, quaternions, and polynomials.
+SwiftMath is a Swift framework providing some useful math constructs and functions, like complex numbers, vectors, matrices, quaternions, and polynomials.
 
-:warning: *SwiftMath is work in progress. Master is currently targeting Swift 2.0 (beta 5).
-For a Swift 1.2-compatibile version, checkout the release [0.1.1](https://github.com/madbat/SwiftMath/releases/tag/v0.1.1)*
+:warning: *SwiftMath is work in progress, in alpha state. Master is currently targeting Swift 2.1.*
 
 ##Requirements
 
