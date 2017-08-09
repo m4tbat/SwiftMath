@@ -1,4 +1,4 @@
-#SwiftMath
+# SwiftMath
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
@@ -6,11 +6,11 @@ SwiftMath is a Swift framework providing some useful math constructs and functio
 
 :warning: *SwiftMath is work in progress, in alpha state. Master is currently targeting Swift 2.1.*
 
-##Requirements
+## Requirements
 
 SwiftMath requires iOS 8.0+ / OS X 10.9+.
 
-##Installation
+## Installation
 
 SwiftMath can be installed with the dependency manager [Carthage](https://github.com/Carthage/Carthage).
 *	Add the following line to your project's Cartfile
@@ -20,9 +20,9 @@ github "madbat/SwiftMath"
 *	In the terminal, run `carthage update`
 *	Link your project target(s) with the built frameworks. Application targets should also ensure that the framework gets copied into their application bundle.
 
-##Usage
+## Usage
 
-###Vector3
+### Vector3
 
 Vector3 — as the name suggests — represents a vector in the three-dimensional Euclidean space (aka R×R×R).
 Some of the most common uses of 3D vectors consist in encoding physical quantities like position, velocity, acceleration, force, and many others.
@@ -44,11 +44,11 @@ Vector3.zero() // Vector3(x: 0, y: 0, z: 0)
 v3.unit() // divides v3 by its length
 ```
 
-###Vector2
+### Vector2
 
 Pretty much like `Vector3`, but for 2D vectors.
 
-###Complex
+### Complex
 
 Complex numbers extend real numbers in order to solve problems that cannot be solved with real numbers alone.
 For example, the roots of a polynomial equation of degree > 1 can always be expressed with complex numbers, but not with real numbers.
@@ -72,7 +72,7 @@ let realComplex = Complex(10.0, 0.0)
 realComplex.isReal // true
 ```
 
-###Quaternion
+### Quaternion
 
 Quaternions extend complex numbers to 4 dimensions.
 They're handy to rotate three-dimensional vectors.
@@ -84,7 +84,7 @@ let rotation = Quaternion(axis: Vector3(x: 1, y: 0, z: 0), angle: Double.PI/2.0)
 let rotated = original.rotate(rotation) // Vector3(x: 3, y: 0, z: 4.0)
 ```
 
-###Polynomial
+### Polynomial
 
 Polynomial lets you represent – and find the roots of – a polynomial expression.
 
@@ -101,10 +101,10 @@ For polynomials of degree <= 4, `roots()` defaults to using the analytic method,
 It is possible to force the root finding process to use the numeric method also for polynomials
 of degree <= 4, using `roots(preferClosedFormSolution: false)`.
 
-##Contributing
+## Contributing
 
 Contributions in any form (especially pull requests) are _very_ welcome!
 
-##License
+## License
 
 SwiftMath is released under the MIT License. See the [LICENSE](https://github.com/madbat/SwiftMath/blob/master/LICENSE) file for more info.
