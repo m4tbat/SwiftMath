@@ -45,6 +45,11 @@ public struct Vector2<Real: RealType>: VectorType {
         return (x * vector.x) + (y * vector.y)
     }
     
+    public func rotate(rotation: Quaternion<Real>) -> Vector2 {
+        assert(rotation.length == 1.0, "rotation is not a unit-length quaternion")
+        return self + (rotation.im + rotation.im) × (rotation.im × self + rotation.re * self)
+    }
+    
 }
 
 // MARK: Hashable
@@ -86,5 +91,4 @@ extension Vector2: CustomStringConvertible {
     public var description: String {
         return "(x: \(x), y: \(y))"
     }
-    
 }

@@ -10,7 +10,7 @@ import Foundation
 
 public protocol VectorType: Equatable, ArrayLiteralConvertible, CustomStringConvertible {
     
-    typealias Real: RealType
+    associatedtype Real: RealType
     
     init(_ coordinates: [Real])
     
@@ -30,15 +30,15 @@ public protocol VectorType: Equatable, ArrayLiteralConvertible, CustomStringConv
         
     // MARK: Operators
     
-    func +(v1: Self, v2: Self) -> Self
+    static func +(v1: Self, v2: Self) -> Self
     
-    func -(v1: Self, v2: Self) -> Self
+    static func -(v1: Self, v2: Self) -> Self
     
-    func *(scalar: Real, vector: Self) -> Self
+    static func *(scalar: Real, vector: Self) -> Self
     
-    func /(vector: Self, scalar: Real) -> Self
+    static func /(vector: Self, scalar: Real) -> Self
     
-    prefix func -(vector: Self) -> Self
+    prefix static func -(vector: Self) -> Self
     
     func scale(value: Real) -> Self
     

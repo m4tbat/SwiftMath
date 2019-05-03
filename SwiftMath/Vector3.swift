@@ -42,6 +42,14 @@ public struct Vector3<Real: RealType>: VectorType {
         return Vector3(x: value * x, y: value * y, z: value * z)
     }
     
+    public func magnitude(value: Vector3) -> Real {
+        return sqrt(value.X * value.X + value.Y * value.Y + value.Z * value.Z);
+    }
+    
+    public func normalize(value: Vector3) -> Vector3 {
+        return value / magnitude(value);
+    }
+    
     public func dotProduct(vector: Vector3) -> Real {
         return (x * vector.x) + (y * vector.y) + (z * vector.z)
     }
@@ -91,6 +99,14 @@ public func - <Real: RealType>(v1: Vector3<Real>, v2: Vector3<Real>) -> Vector3<
 
 public prefix func - <Real: RealType>(vector: Vector3<Real>) -> Vector3<Real> {
     return Vector3(x: -vector.x, y: -vector.y, z: -vector.z)
+}
+
+public func * <Real: RealType>(v1: Vector3<Real>, v2: Vector3<Real>) -> Vector3<Real> {
+    return Vector3(x: v1.x * v2.x, y: v1.y * v2.y, z: v1.z * v2.z)
+}
+
+public func / <Real: RealType>(v1: Vector3<Real>, v2: Vector3<Real>) -> Vector3<Real> {
+    return Vector3(x: v1.x / v2.x, y: v1.y / v2.y, z: v1.z / v2.z)
 }
 
 infix operator × { associativity left precedence 150 }
